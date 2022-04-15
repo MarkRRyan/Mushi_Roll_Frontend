@@ -10,7 +10,7 @@ import BrowseAnime from './pages/BrowseAnime.js'
 import BrowseLists from './pages/BrowseLists.js'
 import UserProfile from './pages/UserProfile.js'
 import AnimeDetail from './pages/AnimeDetail.js'
-// import './styles/App.css'
+import './styles/App.css'
 
 const App = () => {
 
