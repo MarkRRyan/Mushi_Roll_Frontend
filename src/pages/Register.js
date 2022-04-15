@@ -30,7 +30,7 @@ const Register = () => {
       password: '',
       confirmPassword: ''
     })
-    // navigate('/signin')
+    navigate('/signin')
     console.log(formValues)
   }
 
@@ -87,8 +87,7 @@ const Register = () => {
               !formValues.email ||
               (!formValues.password &&
                 formValues.confirmPassword === formValues.password)
-            }
-          >
+            }>
             Sign In
           </button>
         </form>

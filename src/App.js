@@ -1,6 +1,6 @@
-// import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router'
-// import { CheckSession } from './services/Auth'
+import { CheckSession } from './services/Auth'
 import Nav from './components/Nav'
 import Register from './pages/Register'
 import Signin from './pages/Signin'
@@ -14,48 +14,50 @@ import './styles/App.css'
 
 const App = () => {
 
-  // const [authenticated, toggleAuthenticated] = useState(false)
-  // const [user, setUser] = useState(null)
+  const [authenticated, toggleAuthenticated] = useState(false)
+  const [user, setUser] = useState(null)
 
-  // const handleLogOut = () => {
-  //   setUser(null)
-  //   toggleAuthenticated(false)
-  //   localStorage.clear()
-  // }
+  const handleLogOut = () => {
+    setUser(null)
+    toggleAuthenticated(false)
+    localStorage.clear()
+  }
 
-  // const checkToken = async () => {
-  //   const user = await CheckSession()
-  //   setUser(user)
-  //   toggleAuthenticated(true)
-  // }
+  const checkToken = async () => {
+    // const user = await CheckSession()
+    setUser(user)
+    toggleAuthenticated(true)
+    console.log(user)
+    console.log(authenticated)
+  }
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token')
-  //   if (token) {
-  //     checkToken()
-  //   }
-  // }, [])
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
 
   return (
     <div className="App">
       <Nav
-        // authenticated={authenticated}
-        // user={user}
-        // handleLogOut={handleLogOut}
+        authenticated={authenticated}
+        user={user}
+        handleLogOut={handleLogOut}
       />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={
             <Signin
-              // setUser={setUser}
-              // toggleAuthenticated={toggleAuthenticated} 
+              setUser={setUser}
+              toggleAuthenticated={toggleAuthenticated} 
             />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={
             <Dashboard 
-              // user={user}
-              // authenticated={authenticated}
+              user={user}
+              authenticated={authenticated}
             />} />
 					<Route path="/browse_anime" element={<BrowseAnime />} />
 					<Route path="/browse_lists" element={<BrowseLists />} />
