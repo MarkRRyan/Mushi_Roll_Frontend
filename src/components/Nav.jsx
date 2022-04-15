@@ -10,7 +10,9 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
         <Link onClick={handleLogOut} to="/">
           Sign Out
         </Link>
-      </nav>
+			  <Link to="/browse_anime">Browse Anime</Link>
+			  <Link to="/browse_lists">Browse Lists</Link>
+        </nav>
     )
   }
 
@@ -19,12 +21,8 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
       <Link to="/">Home</Link>
       <Link to="/register">Register</Link>
       <Link to="/signin">Sign In</Link>
-			{/* <Link to="/dashboard">Dashboard</Link>
-			<Link to="/browse_anime">Browse Anime</Link>
-			<Link to="/browse_lists">Browse Lists</Link> */}
     </nav>
   )
-
 
 
   return (
