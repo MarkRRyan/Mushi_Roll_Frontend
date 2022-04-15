@@ -27,8 +27,6 @@ const App = () => {
     // const user = await CheckSession()
     setUser(user)
     toggleAuthenticated(true)
-    console.log(user)
-    console.log(authenticated)
   }
 
   useEffect(() => {
@@ -51,6 +49,8 @@ const App = () => {
           <Route path="/signin" element={
             <Signin
               setUser={setUser}
+              user={user}
+              authenticated={authenticated}
               toggleAuthenticated={toggleAuthenticated} 
             />} />
           <Route path="/register" element={<Register />} />
@@ -59,10 +59,26 @@ const App = () => {
               user={user}
               authenticated={authenticated}
             />} />
-					<Route path="/browse_anime" element={<BrowseAnime />} />
-					<Route path="/browse_lists" element={<BrowseLists />} />
-					<Route path="/user_profile" element={<UserProfile />} />
-					<Route path="/anime_detail" element={<AnimeDetail />} />
+					<Route path="/browse_anime" element={
+            <BrowseAnime 
+              user={user}
+              authenticated={authenticated}
+            />} />
+					<Route path="/browse_lists" element={
+          <BrowseLists 
+            user={user}
+            authenticated={authenticated}
+          />} />
+					<Route path="/user_profile" element={
+          <UserProfile 
+            user={user}
+            authenticated={authenticated}
+          />} />
+					<Route path="/anime_detail" element={
+          <AnimeDetail 
+            user={user}
+            authenticated={authenticated}
+          />} />
         </Routes>
       </main>
     </div>
