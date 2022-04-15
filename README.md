@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Mushi Roll 🍣
+## By: Ethan Nitz, Michelle Flores, Mark Ryan, and Nell Flores
+### Date: 04/14/2022
+***
+[Ethan's Github](https://github.com/etnitz) | [Michelle's Github](https://github.com/Michelleflo55) | [Mark's Github](https://github.com/DerWindFish/) | [Nell's Github](https://github.com/nell-djmf)
+***
+![ruined sushi](https://i.kym-cdn.com/photos/images/newsfeed/001/216/152/574.jpg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Is that you? Is everything you do in your life wrong? Does nobody love you? Then you should join MUSHIROLL! MushiRoll (not associated with Crunchyroll) is the APP you need for all of your Anime list making needs!! 
 
-## Available Scripts
+***
 
-In the project directory, you can run:
+### Features
 
-### `npm start`
+  🍙 Register and Login into your own account!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ 🍡 View, add to, edit, and delete from your watch list!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ 🍱 You can also view other users' lists!!
 
-### `npm test`
+![anime wow](https://i.kym-cdn.com/entries/icons/facebook/000/030/573/maxresdefault.jpg)
+***
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used:
+![PERN](https://imgur.com/S0qNUF3.png)
+- HTML
+- CSS
+- REACT
+- NODE
+- EXPRESS
+- POSTRESQL
+***
 
-### `npm run build`
+## Bug List
+> 🐛 None yet! 
+***
+## Other Links: 
+![anime computer](https://i.pinimg.com/originals/6a/69/b5/6a69b586e292e6189505e5985ca1bcfc.jpg)
+- [Trello Bored](https://trello.com/invite/b/az5Kx2mH/4722bcb71dce02ce157f0add358f08cc/mushyroll)
+- [Presentation](https://www.canva.com/design/DAE95F_ZAJQ/XPR2ZjmrG5ZNPJrcIL21hA/watch?utm_content=DAE95F_ZAJQ&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+- [Entity Relationship Diagram](https://drive.google.com/file/d/1_TAz-bbEkDir6bWcQmrL27SCdY5aXevd/view)
+- [Component Hierarchy Diagram](https://drive.google.com/file/d/1Y31nmJpAxvcaTXX_O40Ee8uYeYf_YBJ3/view)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+***
+## Member Roles: 
+![Pokemongroup](https://i.pinimg.com/originals/db/6e/cc/db6ecc729b12773b5518e3754c8ac329.png)
+- Ethan and Michelle: backend
+- Nell: Frontend
+- Mark: Git repos and flex
+***
+***
+### Credits:
+![credits](https://imgur.com/K7Li1WV.png)
+- [Google Images](https://www.google.com/imghp?hl=en&authuser=0&ogbl) for various images used throughout the ReadMe
