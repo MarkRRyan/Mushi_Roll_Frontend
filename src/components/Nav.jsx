@@ -1,29 +1,31 @@
 import { Link } from 'react-router-dom'
 
 const Nav = ({ authenticated, user, handleLogOut }) => {
-  // let authenticatedOptions
-  // if (user) {
-  //   authenticatedOptions = (
-  //     <nav>
-  //       <h3>Welcome {user.email}!</h3>
-  //       <Link to="/dashboard">Dashboard</Link>
-  //       <Link onClick={handleLogOut} to="/">
-  //         Sign Out
-  //       </Link>
-  //     </nav>
-  //   )
-  // }
+  let authenticatedOptions
+  if (user) {
+    authenticatedOptions = (
+      <nav>
+        <h3>Welcome {user.email}!</h3>
+        <Link to="/dashboard">Dashboard</Link>
+        <Link onClick={handleLogOut} to="/">
+          Sign Out
+        </Link>
+      </nav>
+    )
+  }
 
   const publicOptions = (
     <nav>
       <Link to="/">Home</Link>
       <Link to="/register">Register</Link>
       <Link to="/signin">Sign In</Link>
-			<Link to="/dashboard">Dashboard</Link>
+			{/* <Link to="/dashboard">Dashboard</Link>
 			<Link to="/browse_anime">Browse Anime</Link>
-			<Link to="/browse_lists">Browse Lists</Link>
+			<Link to="/browse_lists">Browse Lists</Link> */}
     </nav>
   )
+
+
 
   return (
     <header>
@@ -35,8 +37,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
           />
         </div>
       </Link>
-      {/* {authenticated && user ? authenticatedOptions : publicOptions} */}
-			{publicOptions}
+      {authenticated && user ? authenticatedOptions : publicOptions}
     </header>
   )
 }
