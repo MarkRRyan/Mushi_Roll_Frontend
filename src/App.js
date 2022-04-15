@@ -25,8 +25,9 @@ const App = () => {
 
   const checkToken = async () => {
     // const user = await CheckSession()
-    setUser(user)
+    // setUser(user)
     toggleAuthenticated(true)
+    console.log(user)
   }
 
   useEffect(() => {
