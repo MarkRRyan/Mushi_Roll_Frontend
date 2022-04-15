@@ -20,13 +20,9 @@ const Signin = (props) => {
     //   password: ''
     // })
     // props.setUser(payload)
-    const payload = formValues
-    props.setUser(payload.email)
+    props.setUser(formValues)
     props.toggleAuthenticated(true)
     navigate('/dashboard')
-    console.log('signin form', formValues)
-    console.log(props.authenticated)
-    console.log(payload.email)
   }
 
 
