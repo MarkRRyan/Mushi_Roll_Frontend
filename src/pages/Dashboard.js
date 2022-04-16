@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+
 const Dashboard = ({ user, authenticated }) => {
 
   let navigate = useNavigate()
+
 
   return (user && authenticated) ? (
     <div className="dashboard">
