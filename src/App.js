@@ -15,7 +15,7 @@ import './styles/App.css'
 const App = () => {
 
   const [watchlist, setWatchlist] = useState([])
-
+  const [isClicked, setIsClicked] = useState(false)
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
 
@@ -70,6 +70,8 @@ const App = () => {
               authenticated={authenticated}
               watchlist={watchlist}
               setWatchlist={setWatchlist}
+              isClicked={isClicked}
+              setIsClicked={setIsClicked}
             />} />
 					<Route path="/browse_lists" element={
           <BrowseLists 

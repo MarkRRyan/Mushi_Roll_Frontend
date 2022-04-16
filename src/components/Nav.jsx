@@ -31,7 +31,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
         <div className="logo-wrapper" alt="logo">
           <img
             className="logo"
-            src="https://i.imgur.com/3P1yUxF.png"
+            src="https://i.imgur.com/UuiW73M.png"
           />
         </div>
       </Link>
