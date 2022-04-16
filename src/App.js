@@ -61,6 +61,8 @@ const App = () => {
             <Dashboard 
               user={user}
               authenticated={authenticated}
+              watchlist={watchlist}
+              setWatchlist={setWatchlist}
             />} />
 					<Route path="/browse_anime" element={
             <BrowseAnime 

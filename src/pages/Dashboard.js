@@ -2,14 +2,29 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-const Dashboard = ({ user, authenticated }) => {
+const Dashboard = ({ user, authenticated, watchlist, setWatchlist }) => {
 
   let navigate = useNavigate()
 
 
   return (user && authenticated) ? (
     <div className="dashboard">
-			<h3>this is Dashboard</h3>
+			<h3>Watchlist Preview</h3>
+      <button onClick={() => setWatchlist([])}>Clear Watchlist Preview</button>
+      <button>Update Watchlist</button>
+      <div className="anime-grid">
+      {watchlist.map((show) => (
+        <div className="anime-item" key={show.mal_id}>
+          <h3>{show.title}</h3>
+          <div>
+            <img src={show.images.jpg.image_url} alt="poster"/>
+          </div>
+          <p>release: {show.year}</p>
+          <p>episodes: {show.episodes}</p>
+          <p>Synopsis: {show.synopsis}</p>
+        </div>
+      ))}
+      </div>
     </div>
   ) : (
     <div className='protected'>
