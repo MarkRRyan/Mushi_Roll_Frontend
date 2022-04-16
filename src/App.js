@@ -13,7 +13,9 @@ import AnimeDetail from './pages/AnimeDetail.js'
 import './styles/App.css'
 
 const App = () => {
-  
+
+  const [watchlist, setWatchlist] = useState([])
+
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
 
@@ -64,6 +66,8 @@ const App = () => {
             <BrowseAnime 
               user={user}
               authenticated={authenticated}
+              watchlist={watchlist}
+              setWatchlist={setWatchlist}
             />} />
 					<Route path="/browse_lists" element={
           <BrowseLists 
