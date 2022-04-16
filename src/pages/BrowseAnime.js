@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import { GetAllAnime } from "../services/ListServices"
 
-const BrowseAnime = ({ user, authenticated }) => {
+const BrowseAnime = ({ user, authenticated, watchlist, setWatchlist }) => {
 
   let navigate = useNavigate()
 
@@ -25,7 +25,7 @@ const BrowseAnime = ({ user, authenticated }) => {
       {anime.map((show) => (
         <div className="anime-item" key={show.mal_id}>
           <h3>{show.title}</h3>
-          <button>Add to Watchlist</button>
+          <button onClick={() => setWatchlist([...watchlist, show])}>Add to Watchlist</button>
           <div>
             <img src={show.images.jpg.image_url} alt="poster"/>
           </div>
