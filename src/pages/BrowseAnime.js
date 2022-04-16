@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import { GetAllAnime } from "../services/ListServices"
 
-const BrowseAnime = ({ user, authenticated, watchlist, setWatchlist }) => {
+const BrowseAnime = ({ user, authenticated, watchlist, setWatchlist, isClicked, setIsClicked }) => {
 
   let navigate = useNavigate()
 
@@ -21,17 +21,26 @@ const BrowseAnime = ({ user, authenticated, watchlist, setWatchlist }) => {
   return (user && authenticated) ? (
     <div className="dashboard">
 			<h3>Anime Database</h3>
+      <button onClick={() => setIsClicked(true)}>Show Info</button>
+      <button onClick={() => setIsClicked(false)}>Hide Info</button>
       <div className="anime-grid">
       {anime.map((show) => (
-        <div className="anime-item" key={show.mal_id}>
+        <div className="anime-item" key={show.mal_id} style={{
+          '--poster-img': `url(${show.images.jpg.large_image_url})`
+        }}>
           <h3>{show.title}</h3>
           <button onClick={() => setWatchlist([...watchlist, show])}>Add to Watchlist</button>
-          <div>
-            <img src={show.images.jpg.image_url} alt="poster"/>
-          </div>
-          <p>release: {show.year}</p>
-          <p>episodes: {show.episodes}</p>
-          <p>Synopsis: {show.synopsis}</p>
+          {
+          isClicked ? ( 
+            <div>
+              <p>release: {show.year}</p>
+              <p>episodes: {show.episodes}</p>
+              <p>Synopsis: {show.synopsis}</p>
+            </div>
+          ) : (
+            <div></div>
+          )
+        }
         </div>
       ))}
       </div>

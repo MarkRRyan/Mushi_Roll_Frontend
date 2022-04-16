@@ -1,7 +1,7 @@
 :root {
   --primary-bg: #000411;
   --link-color-primary: #aeb7b3;
-  --secondary-bg: #230b3e;
+  --secondary-bg: #520084;
   --link-color-secondary: #e1efe6;
   --primary-button-hover: #160c28;
 }
@@ -16,6 +16,10 @@ body {
   color: white;
   background-color: var(--secondary-bg);
 }
+
+.logo {
+  max-height: 30vh;
+} 
 
 nav {
   display: flex;
@@ -51,4 +55,22 @@ form label {
   align-items: center;
   justify-content: center;
   align-self: flex-start;
+}
+
+.anime-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+.anime-item {
+  width: 400px;
+  height: 400px;
+  border: 1px solid pink;
+  border-radius: 25px;
+  background-image: var(--poster-img);
+  background-size: cover;
 }
