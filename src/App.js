@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router'
 import { CheckSession } from './services/Auth'
 import { AnimeProvider } from './components/AnimeContext'
+import { GetAllAnime } from "./services/ListServices"
 import Nav from './components/Nav'
 import Register from './pages/Register'
 import Signin from './pages/Signin'
@@ -16,9 +17,10 @@ import './styles/App.css'
 const App = () => {
 
   const [watchlist, setWatchlist] = useState([])
-  // const [clicked, isClicked] = useState(false)
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
+  const [anime, setAnime] = useState([])
+
 
   const handleLogOut = () => {
     setUser(null)
@@ -27,10 +29,9 @@ const App = () => {
   }
 
   const checkToken = async () => {
-    // const user = await CheckSession()
+    const user = await CheckSession()
     setUser(user)
     toggleAuthenticated(true)
-    console.log(user)
   }
 
   useEffect(() => {
@@ -38,6 +39,16 @@ const App = () => {
     if (token) {
       checkToken()
     }
+  }, [])
+
+
+  useEffect(() => {
+    const handleAnime = async () => {
+      const data = await GetAllAnime()
+      setAnime(data)
+      console.log(data)
+    }
+    handleAnime()
   }, [])
 
   return (

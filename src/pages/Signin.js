@@ -20,11 +20,6 @@ const Signin = (props) => {
       password: ''
     })
     props.setUser(payload)
-
-    // temporary ***
-    // props.setUser(formValues)
-    // temporary ***
-
     props.toggleAuthenticated(true)
     navigate('/dashboard')
   }
