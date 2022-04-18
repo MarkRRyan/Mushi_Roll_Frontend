@@ -14,15 +14,15 @@ const Signin = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // const payload = await SignInUser(formValues)
+    const payload = await SignInUser(formValues)
     setFormValues({
       email: '',
       password: ''
     })
-    // props.setUser(payload)
+    props.setUser(payload)
 
     // temporary ***
-    props.setUser(formValues)
+    // props.setUser(formValues)
     // temporary ***
 
     props.toggleAuthenticated(true)
