@@ -5,7 +5,8 @@ const AnimeDetail = ( {show} ) => {
 
   const {clicked} = useContext(AnimeContext)
   const {isClicked} = useContext(AnimeContext)
-  console.log(AnimeContext)
+  
+
   return (
 		<div className="anime-item" key={show.id} style={{
         '--poster-img': `url(${show.image})`
