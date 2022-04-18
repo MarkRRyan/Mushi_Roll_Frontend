@@ -20,12 +20,12 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await RegisterUser({
-      name: formValues.name,
+      name: formValues.username,
       email: formValues.email,
       password: formValues.password
     })
     setFormValues({
-      name: '',
+      username: '',
       email: '',
       password: '',
       confirmPassword: ''
@@ -40,12 +40,12 @@ const Register = () => {
       <div className="register-form">
         <form className="form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label>Name</label>
+            <label>Username</label>
             <input
               onChange={handleChange}
-              name="name"
+              name="username"
               type="text"
-              placeholder="John Smith"
+              placeholder="ex AnimeFan23"
               value={formValues.name}
               required
             />
@@ -56,7 +56,7 @@ const Register = () => {
               onChange={handleChange}
               name="email"
               type="email"
-              placeholder="example@example.com"
+              placeholder="Animefan23@email.com"
               value={formValues.email}
               required
             />
@@ -68,6 +68,7 @@ const Register = () => {
               onChange={handleChange}
               type="password"
               name="password"
+              placeholder='********'
               value={formValues.password}
               required
             />
@@ -78,6 +79,7 @@ const Register = () => {
               onChange={handleChange}
               type="password"
               name="confirmPassword"
+              placeholder='********'
               value={formValues.confirmPassword}
               required
             />
