@@ -1,6 +1,7 @@
-import { useState, useEffect, createContext } from 'react'
+import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router'
 import { CheckSession } from './services/Auth'
+import { AnimeProvider } from './components/AnimeContext'
 import Nav from './components/Nav'
 import Register from './pages/Register'
 import Signin from './pages/Signin'
@@ -14,10 +15,8 @@ import './styles/App.css'
 
 const App = () => {
 
-  const AnimeContext = createContext()
-
   const [watchlist, setWatchlist] = useState([])
-  const [clicked, isClicked] = useState(false)
+  // const [clicked, isClicked] = useState(false)
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [anime, setAnime] = useState([])
@@ -53,8 +52,8 @@ const App = () => {
 
 
   return (
-  <AnimeContext.Provider value={[clicked, isClicked]}>
     <div className="App">
+      <AnimeProvider>
       <Nav
         authenticated={authenticated}
         user={user}
@@ -93,8 +92,8 @@ const App = () => {
           />} />
         </Routes>
       </main>
+      </AnimeProvider>
     </div>
-    </AnimeContext.Provider>
   )
 }
 
