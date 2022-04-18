@@ -1,10 +1,12 @@
 import { useState, createContext, useContext } from "react";
-import { AnimeContext } from "../components/AnimeContext";
+import { ListContext } from "../components/ListContext";
 
 const AnimeDetail = ( {show} ) => {
 
-  const {clicked} = useContext(AnimeContext)
-  const {isClicked} = useContext(AnimeContext)
+  const [clicked, isClicked] = useState(false)
+
+  const { watchlist } = useContext(ListContext)
+  const { setWatchlist } = useContext(ListContext)
   
 
   return (

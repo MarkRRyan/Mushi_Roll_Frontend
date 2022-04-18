@@ -1,15 +1,15 @@
-import { useState, createContext } from 'react'
+// import { useState, createContext } from 'react'
 
-const AnimeContext = createContext()
+// const AnimeContext = createContext()
 
-const AnimeProvider = (props) => {
-	const [clicked, isClicked] = useState(false)
+// const AnimeProvider = (props) => {
+// 	const [clicked, isClicked] = useState(false)
 
-	return (
-		<AnimeContext.Provider value={{clicked, isClicked}}>
-			{props.children}
-		</AnimeContext.Provider>
-	)
-}
+// 	return (
+// 		<AnimeContext.Provider value={{clicked, isClicked}}>
+// 			{props.children}
+// 		</AnimeContext.Provider>
+// 	)
+// }
 
-export { AnimeContext, AnimeProvider }
+// export { AnimeContext, AnimeProvider }
