@@ -15,12 +15,16 @@ const Signin = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     // const payload = await SignInUser(formValues)
-    // setFormValues({
-    //   email: '',
-    //   password: ''
-    // })
+    setFormValues({
+      email: '',
+      password: ''
+    })
     // props.setUser(payload)
+
+    // temporary ***
     props.setUser(formValues)
+    // temporary ***
+
     props.toggleAuthenticated(true)
     navigate('/dashboard')
   }

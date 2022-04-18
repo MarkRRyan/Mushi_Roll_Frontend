@@ -8,6 +8,8 @@ const BrowseAnime = ({ user, authenticated, watchlist, setWatchlist, isClicked, 
 
   const [anime, setAnime] = useState([])
   
+
+  // temporary ***
   useEffect(() => {
     const handleAnime = async () => {
       const data = await GetAllAnime()
@@ -16,8 +18,20 @@ const BrowseAnime = ({ user, authenticated, watchlist, setWatchlist, isClicked, 
     }
     handleAnime()
   }, [])
+  // temporary ***
 
 
+
+  // useEffect(() => {
+  //   const handleAnime = async () => {
+  //     const data = await GetAllAnime()
+  //     setAnime(data)
+  //     console.log(data)
+  //   }
+  //   handleAnime()
+  // }, [])
+
+ // temporary ***
   return (user && authenticated) ? (
     <div className="dashboard">
 			<h3>Anime Database</h3>
@@ -52,5 +66,43 @@ const BrowseAnime = ({ user, authenticated, watchlist, setWatchlist, isClicked, 
     </div>
   )
 }
+ // temporary ***
+
+
+//  return (user && authenticated) ? (
+//   <div className="dashboard">
+//     <h3>Anime Database</h3>
+//     <button onClick={() => setIsClicked(true)}>Show Info</button>
+//     <button onClick={() => setIsClicked(false)}>Hide Info</button>
+//     <div className="anime-grid">
+//     {anime.map((show) => (
+//       <div className="anime-item" key={show.id} style={{
+//         '--poster-img': `url(${show.image})`
+//       }}>
+//         <h3>{show.title}</h3>
+//         <button onClick={() => setWatchlist([...watchlist, show])}>Add to Watchlist</button>
+//         {
+//         isClicked ? ( 
+//           <div>
+//             <p>release: {show.releaseDate}</p>
+//             <p>seasons: {show.seasons}</p>
+//             <p>episodes: {show.episodes}</p>
+//             <p>Synopsis: {show.description}</p>
+//           </div>
+//         ) : (
+//           <div></div>
+//         )
+//       }
+//       </div>
+//     ))}
+//     </div>
+//   </div>
+// ) : (
+//   <div className='protected'>
+//     <h3>Oops! You must be signed in to do that!</h3>
+//     <button onClick={()=> navigate('/signin')}>Sign in</button>
+//   </div>
+// )
+// }
 
 export default BrowseAnime
