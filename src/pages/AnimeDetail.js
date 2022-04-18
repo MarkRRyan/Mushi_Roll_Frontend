@@ -1,10 +1,11 @@
 import { useState, createContext, useContext } from "react";
+import { AnimeContext } from "../components/AnimeContext";
 
 const AnimeDetail = ( {show} ) => {
 
-  const clicked = useContext(AnimeContext)
-  const isClicked = useContext(AnimeContext)
-
+  const {clicked} = useContext(AnimeContext)
+  const {isClicked} = useContext(AnimeContext)
+  console.log(AnimeContext)
   return (
 		<div className="anime-item" key={show.id} style={{
         '--poster-img': `url(${show.image})`
