@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router'
 import { CheckSession } from './services/Auth'
-import { AnimeProvider } from './components/AnimeContext'
+// import { AnimeProvider } from './components/AnimeContext'
 import { GetAllAnime } from "./services/ListServices"
+import { ListProvider } from './components/ListContext'
 import Nav from './components/Nav'
 import Register from './pages/Register'
 import Signin from './pages/Signin'
@@ -16,7 +17,7 @@ import './styles/App.css'
 
 const App = () => {
 
-  const [watchlist, setWatchlist] = useState([])
+  // const [watchlist, setWatchlist] = useState([])
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [anime, setAnime] = useState([])
@@ -53,7 +54,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <AnimeProvider>
+      <ListProvider>
+      {/* <AnimeProvider> */}
       <Nav
         authenticated={authenticated}
         user={user}
@@ -74,15 +76,15 @@ const App = () => {
             <Dashboard 
               user={user}
               authenticated={authenticated}
-              watchlist={watchlist}
-              setWatchlist={setWatchlist}
+              // watchlist={watchlist}
+              // setWatchlist={setWatchlist}
             />} />
           <Route path="/browse_anime" element={
             <BrowseAnime 
             user={user}
             authenticated={authenticated}
-            watchlist={watchlist}
-            setWatchlist={setWatchlist}
+            // watchlist={watchlist}
+            // setWatchlist={setWatchlist}
             anime={anime}
           />} />
 					<Route path="/browse_lists" element={
@@ -102,7 +104,8 @@ const App = () => {
           />} />
         </Routes>
       </main>
-      </AnimeProvider>
+      {/* </AnimeProvider> */}
+      </ListProvider>
     </div>
   )
 }
