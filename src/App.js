@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, createContext } from 'react'
 import { Route, Routes } from 'react-router'
 import { CheckSession } from './services/Auth'
 import Nav from './components/Nav'
@@ -13,6 +13,8 @@ import AnimeDetail from './pages/AnimeDetail.js'
 import './styles/App.css'
 
 const App = () => {
+
+  const AnimeContext = createContext()
 
   const [watchlist, setWatchlist] = useState([])
   const [isClicked, setIsClicked] = useState(false)
@@ -40,6 +42,7 @@ const App = () => {
   }, [])
 
   return (
+  <AnimeContext.Provider value={[clicked, isClicked]}>
     <div className="App">
       <Nav
         authenticated={authenticated}
@@ -64,15 +67,14 @@ const App = () => {
               watchlist={watchlist}
               setWatchlist={setWatchlist}
             />} />
-					<Route path="/browse_anime" element={
+          <Route path="/browse_anime" element={
             <BrowseAnime 
-              user={user}
-              authenticated={authenticated}
-              watchlist={watchlist}
-              setWatchlist={setWatchlist}
-              isClicked={isClicked}
-              setIsClicked={setIsClicked}
-            />} />
+            user={user}
+            authenticated={authenticated}
+            watchlist={watchlist}
+            setWatchlist={setWatchlist}
+            anime={anime}
+          />} />
 					<Route path="/browse_lists" element={
           <BrowseLists 
             user={user}
@@ -91,6 +93,7 @@ const App = () => {
         </Routes>
       </main>
     </div>
+    </AnimeContext.Provider>
   )
 }
 
