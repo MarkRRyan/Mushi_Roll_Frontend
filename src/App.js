@@ -8,7 +8,6 @@ import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import BrowseAnime from './pages/BrowseAnime.js'
 import BrowseLists from './pages/BrowseLists.js'
-import UserProfile from './pages/UserProfile.js'
 import AnimeDetail from './pages/AnimeDetail.js'
 import './styles/App.css'
 
@@ -75,11 +74,6 @@ const App = () => {
             />} />
 					<Route path="/browse_lists" element={
           <BrowseLists 
-            user={user}
-            authenticated={authenticated}
-          />} />
-					<Route path="/user_profile" element={
-          <UserProfile 
             user={user}
             authenticated={authenticated}
           />} />
