@@ -9,8 +9,8 @@ import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import BrowseAnime from './pages/BrowseAnime.js'
 import BrowseLists from './pages/BrowseLists.js'
-import AnimeDetail from './pages/AnimeDetail'
-import { GetAllAnime } from "./services/ListServices"
+import UserProfile from './pages/UserProfile.js'
+import AnimeDetail from './pages/AnimeDetail.js'
 import './styles/App.css'
 
 const App = () => {
@@ -19,7 +19,6 @@ const App = () => {
   // const [clicked, isClicked] = useState(false)
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
-  const [anime, setAnime] = useState([])
 
   const handleLogOut = () => {
     setUser(null)
@@ -40,16 +39,6 @@ const App = () => {
       checkToken()
     }
   }, [])
-
-  useEffect(() => {
-    const handleAnime = async () => {
-      const data = await GetAllAnime()
-      setAnime(data)
-      console.log(data)
-    }
-    handleAnime()
-  }, [])
-
 
   return (
     <div className="App">
@@ -87,6 +76,16 @@ const App = () => {
           />} />
 					<Route path="/browse_lists" element={
           <BrowseLists 
+            user={user}
+            authenticated={authenticated}
+          />} />
+					<Route path="/user_profile" element={
+          <UserProfile 
+            user={user}
+            authenticated={authenticated}
+          />} />
+					<Route path="/anime_detail" element={
+          <AnimeDetail 
             user={user}
             authenticated={authenticated}
           />} />
