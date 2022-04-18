@@ -1,7 +1,9 @@
+import { useState, createContext, useContext } from "react";
 
+const AnimeDetail = ( {show} ) => {
 
-const AnimeDetail = ( {show}, {watchlist, clicked, isClicked, setWatchlist}) => {
-
+  const clicked = useContext(AnimeContext)
+  const isClicked = useContext(AnimeContext)
 
   return (
 		<div className="anime-item" key={show.id} style={{
@@ -9,7 +11,7 @@ const AnimeDetail = ( {show}, {watchlist, clicked, isClicked, setWatchlist}) => 
     }}>
 
     {
-      isClicked ? ( 
+      clicked ? ( 
         <div>
           <div className='popup-container'>
             <img src={show.image} alt='' onClick={()=>isClicked(false)} style={{
@@ -25,7 +27,7 @@ const AnimeDetail = ( {show}, {watchlist, clicked, isClicked, setWatchlist}) => 
       }
       <div className='anime-card'>
         <button onClick={()=>isClicked(true)}  className='item-name'>Show Info</button>
-        <button onClick={() => setWatchlist([...watchlist, show])}>Add to Watchlist</button>
+        {/* <button onClick={() => setWatchlist([...watchlist, show])}>Add to Watchlist</button> */}
           <div className='info'>
             <h3>title: { show.title } </h3>
           </div>
