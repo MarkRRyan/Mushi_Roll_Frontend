@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ListContext } from '../components/ListContext'
 
 
-const Dashboard = ({ user, authenticated, watchlist, setWatchlist }) => {
+const Dashboard = ({ user, authenticated}) => {
 
   let navigate = useNavigate()
+
+  const { watchlist } = useContext(ListContext)
+  const { setWatchlist } = useContext(ListContext)
 
 // temporary ***
 //   return (user && authenticated) ? (
