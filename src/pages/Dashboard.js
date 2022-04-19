@@ -9,14 +9,10 @@ import { PushWatchlist } from '../services/ListServices';
 
 const Dashboard = ({ user, authenticated }) => {
   const [listData, setListData] = useState([])
-  // const [postList, setPostList] = useState()
 
   let watch = []
   
   const updateWatchlist = async () => {
-      // const data = await UpdateWatchlist(watchlist.id, user.id)
-      // console.log(watchlist[0].id)
-      // console.log(user.id)
       watch = await (watchlist.map((item)=> {
        return(item.id)
       }))
@@ -26,10 +22,8 @@ const Dashboard = ({ user, authenticated }) => {
    
     const GotWatchlist = () => {
       let exarr = []
-      let watchAll = watch.map((newItem)=> {
-        // setListData([
-        //   {userId: user.id, animeId: newItem}
-        // ])
+      watch.map((newItem)=> {
+
         exarr.push({userId: user.id, animeId: newItem})
       })
       console.log(exarr)
