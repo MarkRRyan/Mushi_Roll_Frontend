@@ -27,9 +27,11 @@ export const GetUser = async () => {
   }
 }
 
-export const UpdateWatchlist = async () => {
+export const PushWatchlist = async (data) => {
+  
   try {
-    const res = await Client.put('/api/watchlists/update')
+    console.log(data)
+    const res = await Client.put('/api/watchlists/update', data)
     return res.data
   } catch (error) {
     throw error
