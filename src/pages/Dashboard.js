@@ -1,26 +1,56 @@
 import { useContext } from 'react'
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { ListContext } from "../components/ListContext";
 import ListPreviewDetail from '../components/ListPreviewDetail.jsx';
 import UserProfile from '../components/UserProfile.jsx';
+import { UpdateWatchlist } from '../services/ListServices';
 
 
 const Dashboard = ({ user, authenticated }) => {
+  const [listData, setListData] = useState([{
+    userId:"",
+    animeId:""
+  }])
+  // const [postList, setPostList] = useState()
+
+  let watch = []
+  
+  const updateWatchlist = async () => {
+      // const data = await UpdateWatchlist(watchlist.id, user.id)
+      // console.log(watchlist[0].id)
+      // console.log(user.id)
+      watch = await (watchlist.map((item)=> {
+       return(item.id)
+      }))
+      console.log(watch)
+      GotWatchlist()
+      }
+   
+    const GotWatchlist = () => {
+      let exarr = []
+      let watchAll = watch.map((newItem)=> {
+        // setListData([
+        //   {userId: user.id, animeId: newItem}
+        // ])
+        exarr.push({userId: user.id, animeId: newItem})
+      })
+      console.log(exarr)
+      setListData(exarr)
+    }
+ 
 
   const {watchlist} = useContext(ListContext)
   const {setWatchlist} = useContext(ListContext)
 
-
   let navigate = useNavigate()
-
-
 
 return (user && authenticated) ? (
   <div className="dashboard">
     <div className='list-preview-pane'>
       <h3>Watchlist Preview</h3>
       <button className='dash-button' onClick={() => setWatchlist([])}>Clear Preview</button>
-      <button>Save To Watchlist</button>
+      <button onClick={() => updateWatchlist()} >Save To Watchlist</button>
       <div className="anime-grid">
         {watchlist.map((show) => (
           <ListPreviewDetail 
@@ -35,6 +65,8 @@ return (user && authenticated) ? (
     <div className='user-container'>
       <UserProfile
       />
+
+      When save to watchlist is clicked, items appear here"
     </div>
   </div>
 ) : (
