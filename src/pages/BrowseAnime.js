@@ -1,13 +1,12 @@
 import { useNavigate } from "react-router-dom"
-import { useEffect, useState, useContext } from 'react'
-import AnimeDetail from "./AnimeDetail"
+import AnimeDetail from "../components/AnimeDetail.jsx"
 
-const BrowseAnime = ({ user, authenticated, watchlist, setWatchlist, clicked, isClicked, anime }) => {
+const BrowseAnime = ({ user, authenticated, anime }) => {
 
   let navigate = useNavigate() 
 
  return (user && authenticated) ? (
-  <div className="dashboard">
+  <div className="browse-container">
     <h3>Anime Database</h3>
     <div className="anime-grid">
     {anime.map((show) => (

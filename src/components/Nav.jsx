@@ -5,7 +5,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   if (user) {
     authenticatedOptions = (
       <nav>
-        <h3>Welcome {user.email}!</h3>
+        <h3>Welcome {user.username}!</h3>
         <Link to="/dashboard">Dashboard</Link>
         <Link onClick={handleLogOut} to="/">
           Sign Out
@@ -31,6 +31,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
         <div className="logo-wrapper" alt="logo">
           <img
             className="logo"
+            alt='logo'
             src="https://i.imgur.com/UuiW73M.png"
           />
         </div>

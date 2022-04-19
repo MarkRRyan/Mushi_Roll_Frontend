@@ -1,31 +1,40 @@
-import { useEffect, useState, useContext } from 'react'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ListContext } from '../components/ListContext'
+import { ListContext } from "../components/ListContext";
+import ListPreviewDetail from '../components/ListPreviewDetail.jsx';
+import UserProfile from '../components/UserProfile.jsx';
 
 
-const Dashboard = ({ user, authenticated}) => {
+const Dashboard = ({ user, authenticated }) => {
+
+  const {watchlist} = useContext(ListContext)
+  const {setWatchlist} = useContext(ListContext)
+
 
   let navigate = useNavigate()
 
-  const { watchlist } = useContext(ListContext)
-  const { setWatchlist } = useContext(ListContext)
+
 
 return (user && authenticated) ? (
   <div className="dashboard">
-    <h3>Watchlist Preview</h3>
-    <button onClick={() => setWatchlist([])}>Clear Watchlist Preview</button>
-    <button>Update Watchlist</button>
-    <div className="anime-grid">
-    {watchlist.map((show) => (
-      <div className="anime-item" key={show.id} style={{
-        '--poster-img': `url(${show.image})`}}>
-        <h3>{show.title}</h3>
-        <p>release: {show.releaseDate}</p>
-            <p>seasons: {show.seasons}</p>
-            <p>episodes: {show.episodes}</p>
-            <p>Synopsis: {show.description}</p>
+    <div className='list-preview-pane'>
+      <h3>Watchlist Preview</h3>
+      <button className='dash-button' onClick={() => setWatchlist([])}>Clear Preview</button>
+      <button>Save To Watchlist</button>
+      <div className="anime-grid">
+        {watchlist.map((show) => (
+          <ListPreviewDetail 
+          show={show}
+          key={show.id}
+          title={show.title}
+          image={show.image}
+          />  
+        ))}
       </div>
-    ))}
+    </div>
+    <div className='user-container'>
+      <UserProfile
+      />
     </div>
   </div>
 ) : (

@@ -10,9 +10,9 @@ import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import BrowseAnime from './pages/BrowseAnime.js'
 import BrowseLists from './pages/BrowseLists.js'
-import UserProfile from './pages/UserProfile.js'
-import AnimeDetail from './pages/AnimeDetail.js'
 import './styles/App.css'
+import { ListProvider } from './components/ListContext'
+
 
 const App = () => {
 
@@ -29,6 +29,7 @@ const App = () => {
 
   const checkToken = async () => {
     const user = await CheckSession()
+    console.log(user)
     setUser(user)
     toggleAuthenticated(true)
   }
@@ -45,7 +46,6 @@ const App = () => {
     const handleAnime = async () => {
       const data = await GetAllAnime()
       setAnime(data)
-      console.log(data)
     }
     handleAnime()
   }, [])
@@ -82,16 +82,6 @@ const App = () => {
           />} />
 					<Route path="/browse_lists" element={
           <BrowseLists 
-            user={user}
-            authenticated={authenticated}
-          />} />
-					<Route path="/user_profile" element={
-          <UserProfile 
-            user={user}
-            authenticated={authenticated}
-          />} />
-					<Route path="/anime_detail" element={
-          <AnimeDetail 
             user={user}
             authenticated={authenticated}
           />} />
