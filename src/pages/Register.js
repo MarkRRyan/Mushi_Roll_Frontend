@@ -7,7 +7,7 @@ const Register = () => {
   let navigate = useNavigate()
   
   const [formValues, setFormValues] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -20,7 +20,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await RegisterUser({
-      name: formValues.username,
+      username: formValues.username,
       email: formValues.email,
       password: formValues.password
     })
