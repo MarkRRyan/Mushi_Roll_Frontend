@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router'
 import { CheckSession } from './services/Auth'
 import { GetAllAnime } from "./services/ListServices"
-import { ListProvider } from './components/ListContext'
 import Nav from './components/Nav'
 import Register from './pages/Register'
 import Signin from './pages/Signin'
