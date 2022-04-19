@@ -1,17 +1,14 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { ListContext } from "../components/ListContext";
 import ListPreviewDetail from '../components/ListPreviewDetail.jsx';
 import UserProfile from '../components/UserProfile.jsx';
-import { UpdateWatchlist } from '../services/ListServices';
+import { PushWatchlist } from '../services/ListServices';
 
 
 const Dashboard = ({ user, authenticated }) => {
-  const [listData, setListData] = useState([{
-    userId:"",
-    animeId:""
-  }])
+  const [listData, setListData] = useState([])
   // const [postList, setPostList] = useState()
 
   let watch = []
@@ -37,8 +34,14 @@ const Dashboard = ({ user, authenticated }) => {
       })
       console.log(exarr)
       setListData(exarr)
+      pushList()
     }
- 
+    
+    const pushList =  () => {
+     PushWatchlist(listData)
+      console.log('push successful')
+  }
+    
 
   const {watchlist} = useContext(ListContext)
   const {setWatchlist} = useContext(ListContext)
