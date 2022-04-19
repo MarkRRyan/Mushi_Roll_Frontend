@@ -46,7 +46,7 @@ const Register = () => {
               name="username"
               type="text"
               placeholder="ex AnimeFan23"
-              value={formValues.name}
+              value={formValues.username}
               required
             />
           </div>

@@ -6,14 +6,16 @@ import UserProfile from '../components/UserProfile.jsx';
 
 
 const Dashboard = ({ user, authenticated }) => {
+  
+  const [postToList, setPostToList] = useState({
+    
+  })
+
 
   const {watchlist} = useContext(ListContext)
   const {setWatchlist} = useContext(ListContext)
 
-
   let navigate = useNavigate()
-
-
 
 return (user && authenticated) ? (
   <div className="dashboard">
@@ -35,6 +37,8 @@ return (user && authenticated) ? (
     <div className='user-container'>
       <UserProfile
       />
+
+      THIS IS WHERE I'LL POST MY ROUTE
     </div>
   </div>
 ) : (
