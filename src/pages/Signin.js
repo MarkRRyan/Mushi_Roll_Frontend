@@ -38,7 +38,7 @@ const Signin = (props) => {
               onChange={handleChange}
               name="email"
               type="email"
-              placeholder="example@example.com"
+              placeholder="Animefan23@email.com"
               value={formValues.email}
               required
             />
@@ -49,6 +49,7 @@ const Signin = (props) => {
               onChange={handleChange}
               type="password"
               name="password"
+              placeholder='********'
               value={formValues.password}
               required
             />
