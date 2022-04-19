@@ -26,3 +26,14 @@ export const GetUser = async () => {
     throw error
   }
 }
+
+export const PushWatchlist = async (data) => {
+  
+  try {
+    console.log(data)
+    const res = await Client.put('/api/watchlists/update', data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
