@@ -1,5 +1,5 @@
 
-const UserProfile = ({watcher}) => {
+const UserProfile = () => {
 
 	return (
 		<div>
