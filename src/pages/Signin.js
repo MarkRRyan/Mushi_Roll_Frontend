@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const Signin = (props) => {
 
   let navigate = useNavigate()
+
   
   const [formValues, setFormValues] = useState({ email: '', password: '' })
 
@@ -21,6 +22,7 @@ const Signin = (props) => {
     })
     props.setUser(payload)
     props.toggleAuthenticated(true)
+    localStorage.setItem('watcher', payload.email)
     navigate('/dashboard')
   }
 

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router'
 import { CheckSession } from './services/Auth'
-import { AnimeProvider } from './components/AnimeContext'
 import { GetAllAnime } from "./services/ListServices"
 import Nav from './components/Nav'
 import Register from './pages/Register'
@@ -10,13 +9,12 @@ import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import BrowseAnime from './pages/BrowseAnime.js'
 import BrowseLists from './pages/BrowseLists.js'
-import UserProfile from './pages/UserProfile.js'
-import AnimeDetail from './pages/AnimeDetail.js'
 import './styles/App.css'
+import { ListProvider } from './components/ListContext'
+
 
 const App = () => {
 
-  const [watchlist, setWatchlist] = useState([])
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [anime, setAnime] = useState([])
@@ -30,6 +28,7 @@ const App = () => {
 
   const checkToken = async () => {
     const user = await CheckSession()
+    console.log(user)
     setUser(user)
     toggleAuthenticated(true)
   }
@@ -46,14 +45,13 @@ const App = () => {
     const handleAnime = async () => {
       const data = await GetAllAnime()
       setAnime(data)
-      console.log(data)
     }
     handleAnime()
   }, [])
 
   return (
     <div className="App">
-      <AnimeProvider>
+      <ListProvider>
       <Nav
         authenticated={authenticated}
         user={user}
@@ -74,15 +72,11 @@ const App = () => {
             <Dashboard 
               user={user}
               authenticated={authenticated}
-              watchlist={watchlist}
-              setWatchlist={setWatchlist}
             />} />
           <Route path="/browse_anime" element={
             <BrowseAnime 
             user={user}
             authenticated={authenticated}
-            watchlist={watchlist}
-            setWatchlist={setWatchlist}
             anime={anime}
           />} />
 					<Route path="/browse_lists" element={
@@ -90,19 +84,9 @@ const App = () => {
             user={user}
             authenticated={authenticated}
           />} />
-					<Route path="/user_profile" element={
-          <UserProfile 
-            user={user}
-            authenticated={authenticated}
-          />} />
-					<Route path="/anime_detail" element={
-          <AnimeDetail 
-            user={user}
-            authenticated={authenticated}
-          />} />
         </Routes>
       </main>
-      </AnimeProvider>
+      </ListProvider>
     </div>
   )
 }
