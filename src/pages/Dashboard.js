@@ -8,6 +8,8 @@ import { PushWatchlist } from '../services/ListServices';
 
 
 const Dashboard = ({ user, authenticated }) => {
+  const {watchlist} = useContext(ListContext)
+  const {setWatchlist} = useContext(ListContext)
 
   //listData is the info we're eventually feeding to the backend
   const [listData, setListData] = useState([])
@@ -39,8 +41,7 @@ const Dashboard = ({ user, authenticated }) => {
   }
     
 
-  const {watchlist} = useContext(ListContext)
-  const {setWatchlist} = useContext(ListContext)
+  
 
   let navigate = useNavigate()
 
