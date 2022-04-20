@@ -4,30 +4,30 @@ import { useNavigate } from 'react-router-dom'
 import { ListContext } from "../components/ListContext";
 import ListPreviewDetail from '../components/ListPreviewDetail.jsx';
 import UserProfile from '../components/UserProfile.jsx';
-import { UpdateWatchlist } from '../services/ListServices';
+import { GetUser, PushWatchlist } from '../services/ListServices';
 
 
 const Dashboard = ({ user, authenticated }) => {
-  const [listData, setListData] = useState([{
-    userId:"",
-    animeId:""
-  }])
-  // const [postList, setPostList] = useState()
+  const {watchlist} = useContext(ListContext)
+  const {setWatchlist} = useContext(ListContext)
+  const [listData, setListData] = useState([])
 
+  let navigate = useNavigate()
   let watch = []
-  
+
+  //listData is the info we're eventually feeding to the backend
+
+  //watchlist is a Context, its an array of anime objects, each with their own properties. I'm trying to only extract the id numbers. This function is triggered via onClick
   const updateWatchlist = async () => {
-      // const data = await UpdateWatchlist(watchlist.id, user.id)
-      // console.log(watchlist[0].id)
-      // console.log(user.id)
-      watch = await (watchlist.map((item)=> {
-       return(item.id)
-      }))
-      console.log(watch)
-      GotWatchlist()
-      }
-   
-    const GotWatchlist = () => {
+    watch = await (watchlist.map((item)=> {
+      return(item.id)
+    }))
+    console.log(watch) //output [3, 2]
+    gotWatchlist()
+    }
+
+    //maps over new array 'watch' and inserts their numbers as animeId
+    const gotWatchlist = () => {
       let exarr = []
       let watchAll = watch.map((newItem)=> {
         // setListData([
@@ -38,12 +38,24 @@ const Dashboard = ({ user, authenticated }) => {
       console.log(exarr)
       setListData(exarr)
     }
- 
+    
+    const pushList =  () => {
+      PushWatchlist(listData)
+      console.log('push successful') 
+  }
+    
 
-  const {watchlist} = useContext(ListContext)
-  const {setWatchlist} = useContext(ListContext)
+  useEffect(() => {
+    const userList = async () => {
+      const data = await GetUser(user.id)
+      console.log('this is our data', data)
+    }
+    userList()
+  }, [])
 
-  let navigate = useNavigate()
+  
+
+  
 
 return (user && authenticated) ? (
   <div className="dashboard">
