@@ -81,7 +81,7 @@ const Music = () => {
 				song={songs[track]}
 			/>
 			<MusicControls
-			playing={playing}
+				playing={playing}
 				isPlaying={isPlaying}
 				skip={skip}
 				isSkipped={isSkipped}
