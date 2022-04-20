@@ -11,6 +11,7 @@ import BrowseAnime from './pages/BrowseAnime.js'
 import BrowseLists from './pages/BrowseLists.js'
 import './styles/App.css'
 import { ListProvider } from './components/ListContext'
+import Music from './components/Music'
 
 
 const App = () => {
@@ -49,6 +50,8 @@ const App = () => {
     handleAnime()
   }, [])
 
+
+
   return (
     <div className="App">
       <ListProvider>
@@ -57,6 +60,7 @@ const App = () => {
         user={user}
         handleLogOut={handleLogOut}
       />
+      <Music/>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

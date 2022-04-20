@@ -15,7 +15,7 @@ const BrowseAnime = ({ user, authenticated, anime }) => {
         key={show.id}
         title={show.title}
         image={show.image}
-        />   
+      />   
     ))}
     </div>
   </div>
