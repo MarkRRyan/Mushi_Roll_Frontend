@@ -11,6 +11,7 @@ const Dashboard = ({ user, authenticated }) => {
   const {watchlist} = useContext(ListContext)
   const {setWatchlist} = useContext(ListContext)
   const [listData, setListData] = useState([])
+  const [renderList, setRenderList] = useState([])
 
   let navigate = useNavigate()
   let watch = []
@@ -46,15 +47,13 @@ const Dashboard = ({ user, authenticated }) => {
   useEffect(() => {
     const userList = async () => {
       const data = await GetUser(user.id)
-      console.log('this is our data', data)
+      console.log('this is our data', data.watch_list)
+      setRenderList(data.watch_list)
     }
     userList()
-  })
-
-  useEffect(() => {
-    updateWatchlist()
   }, [])
 
+  
   
 
 return (user && authenticated) ? (
@@ -76,9 +75,10 @@ return (user && authenticated) ? (
     </div>
     <div className='user-container'>
       <UserProfile
+        renderList={renderList}
+        key={renderList.id}
+        title={renderList.title}
       />
-
-      When save to watchlist is clicked, items appear here"
     </div>
   </div>
 ) : (
