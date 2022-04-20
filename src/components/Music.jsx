@@ -10,6 +10,7 @@ const Music = () => {
 	const [track, setTrack] = useState(0)
 	const [nextTrack, setNextTrack] = useState(track + 1)
 	const [skipped, isSkipped] = useState(true)
+	const [volume, setVolume] = useState(1)
 
 
 	const songs = [
@@ -27,6 +28,10 @@ const Music = () => {
 		}
 	]
 
+
+	useEffect(() => {
+		audioElement.current.volume = volume
+	}, [volume])
 
 	useEffect(() => {
 		(playing) ? (
@@ -80,6 +85,17 @@ const Music = () => {
 			<MusicDetails 
 				song={songs[track]}
 			/>
+			<input
+				className="vol"
+      	type="range"
+        min={0}
+        max={1}
+        step={0.02}
+        value={volume}
+        onChange={event => {
+          setVolume(event.target.valueAsNumber)
+        }}
+      />
 			<MusicControls
 				playing={playing}
 				isPlaying={isPlaying}

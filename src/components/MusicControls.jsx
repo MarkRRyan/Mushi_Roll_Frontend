@@ -1,5 +1,6 @@
 
 const MusicControls = ({ playing, isPlaying, skip, isSkipped }) => {
+
 	return (
 		<div className="m-player-controls">
 			<button className="skip" onClick={()=>{
@@ -8,6 +9,7 @@ const MusicControls = ({ playing, isPlaying, skip, isSkipped }) => {
 				}}>ᐊᐊ</button>
 			<button className="play" onClick={()=>isPlaying(!playing)}>ᐅ</button>
 			<button className="skip" onClick={()=>skip()}>ᐅᐅ</button>
+			<br />
 		</div>
 	)
 
