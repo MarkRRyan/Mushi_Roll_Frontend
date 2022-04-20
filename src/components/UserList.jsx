@@ -24,9 +24,12 @@ const UserList = ({list}) => {
                     <div></div>
                 )
             }
+            
             <div className="user-list-item">
+              
                 <h3>
-                    {list.username}
+                   
+                    {list.username} 
                     <button onClick={() => isClicked(true) }>Show List</button>
                 </h3>
             </div>
