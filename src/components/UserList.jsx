@@ -25,7 +25,7 @@ const UserList = ({ list }) => {
                               <br />
                               <img className="carousel-image" src={`${listItem.image}`}></img>
                               </h4>
-                          ))}
+                          	))}
 														<button className="switchLeft sliderButton" onClick={() => handleScroll(-200)}>ᐊ</button> 
           									<button className="switchRight sliderButton" onClick={()=> handleScroll(200)}>ᐅ</button> 
 													</div>

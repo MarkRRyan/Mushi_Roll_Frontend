@@ -267,3 +267,18 @@ input {
 .user-list-title {
   margin-bottom: 0;
 }
+
+.carouselbox::-webkit-scrollbar {
+  display: none;
+}
+
+.user-list-wrapper {
+  max-height: 100%;
+}
+
+.user-list {
+  max-height: 288px;
+  overflow-y: scroll;
+}
+
+
