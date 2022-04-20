@@ -201,6 +201,10 @@ input {
 }
 
 
+.carousel-image { 
+  max-height: 200px;
+}
+
 
 
 
@@ -282,9 +286,10 @@ input {
   width: auto;
   overflow:scroll;
   white-space: nowrap;
-  display: inline-block;
+  /* display: inline-block; */
   text-align:center;
   padding-bottom: 10px !important;
   display:flex;
+  flex-direction: row;
   align-items:center;
 }
