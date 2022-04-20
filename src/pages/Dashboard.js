@@ -12,6 +12,8 @@ const Dashboard = ({ user, authenticated }) => {
   const {setWatchlist} = useContext(ListContext)
   const [listData, setListData] = useState([])
   const [renderList, setRenderList] = useState([])
+  const [change, setChange] = useState(false)
+  
 
   let navigate = useNavigate()
   let watch = []
@@ -25,7 +27,7 @@ const Dashboard = ({ user, authenticated }) => {
     }))
     console.log(watch) //output [3, 2]
     gotWatchlist()
-    }
+  }
 
     //maps over new array 'watch' and inserts their numbers as animeId
     const gotWatchlist = () => {
@@ -40,18 +42,33 @@ const Dashboard = ({ user, authenticated }) => {
     
     const pushList =  () => {
       PushWatchlist(listData)
+      setChange(true)
       console.log('push successful') 
   }
-    
+  
+  const userList = async () => {
+    const data = await GetUser(localStorage.getItem('watcher-id'))
+    console.log('this is our data', data.watch_list)
+    setRenderList(data.watch_list)
+    setChange(false)
+  }
 
+  //renders list on load
   useEffect(() => {
-    const userList = async () => {
-      const data = await GetUser(user.id)
-      console.log('this is our data', data.watch_list)
-      setRenderList(data.watch_list)
-    }
     userList()
   }, [])
+
+  //renders list on change
+  useEffect(() => {
+    userList()
+  }, [change])
+
+  // //prevents double click
+  useEffect(() => {
+    updateWatchlist()
+  }, [])
+
+
 
   
   
