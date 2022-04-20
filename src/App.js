@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router'
 import { CheckSession } from './services/Auth'
 import { GetAllAnime } from "./services/ListServices"
+import { GetUser } from './services/ListServices'
 import Nav from './components/Nav'
 import Register from './pages/Register'
 import Signin from './pages/Signin'
@@ -29,7 +30,7 @@ const App = () => {
 
   const checkToken = async () => {
     const user = await CheckSession()
-    console.log(user)
+    //console.log(user)
     setUser(user)
     toggleAuthenticated(true)
   }
@@ -50,7 +51,7 @@ const App = () => {
     handleAnime()
   }, [])
 
-
+  
 
   return (
     <div className="App">
