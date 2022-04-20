@@ -23,19 +23,25 @@ const BrowseLists = ({ user, authenticated}) => {
   }, [])
 
   return (user && authenticated) ? (
-    <div className="browse-container">
+    <div className="">
 			<h3>Browse the Watchlists</h3>
-      <div>
-        {
-          lists.map((list) => (
-            <UserList
-              list={list}
-              key={list.id}
-              username={list.username}
-              email={list.email}
-            />
-          ))
-        }
+      <div className="body">
+        <div className="carousel">
+          <div className="carouselbox">
+            {
+              lists.map((list) => (
+                <UserList
+                  list={list}
+                  key={list.id}
+                  username={list.username}
+                  email={list.email}
+                />
+              ))
+            }
+          </div> 
+          <a className="switchLeft sliderButton"> Left </a> 
+          <a className="switchRight sliderButton">Right</a> 
+        </div>
       </div>
     </div>
   ) : (
