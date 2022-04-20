@@ -8,32 +8,34 @@ import { PushWatchlist } from '../services/ListServices';
 
 
 const Dashboard = ({ user, authenticated }) => {
-  const [listData, setListData] = useState([])
 
+  //listData is the info we're eventually feeding to the backend
+  const [listData, setListData] = useState([])
   let watch = []
-  
+
+  //watchlist is a Context, its an array of anime objects, each with their own properties. I'm trying to only extract the id numbers. This function is triggered via onClick
   const updateWatchlist = async () => {
-      watch = await (watchlist.map((item)=> {
-       return(item.id)
-      }))
-      console.log(watch)
-      GotWatchlist()
-      }
+    watch = await (watchlist.map((item)=> {
+     return(item.id)
+    }))
+    console.log(watch) //output [3, 2]
+    gotWatchlist()
+    }
    
-    const GotWatchlist = () => {
+    //maps over new array 'watch' and inserts their numbers as animeId
+    const gotWatchlist = () => {
       let exarr = []
       watch.map((newItem)=> {
-
         exarr.push({userId: user.id, animeId: newItem})
       })
-      console.log(exarr)
+      console.log(exarr) //output [0: {userId: 51, animeId: 3}, 1: {userId: 51, animeId: 2}]
       setListData(exarr)
       pushList()
     }
     
     const pushList =  () => {
      PushWatchlist(listData)
-      console.log('push successful')
+      console.log('push successful') 
   }
     
 
