@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { ListContext } from "../components/ListContext";
@@ -32,14 +32,12 @@ const Dashboard = ({ user, authenticated }) => {
     //maps over new array 'watch' and inserts their numbers as animeId
     const gotWatchlist = () => {
       let exarr = []
-      let watchAll = watch.map((newItem)=> {
-        // setListData([
-        //   {userId: user.id, animeId: newItem}
-        // ])
+      watch.map((newItem)=> {
         exarr.push({userId: user.id, animeId: newItem})
       })
-      console.log(exarr)
+      console.log(exarr) //output [0: {userId: 51, animeId: 3}, 1: {userId: 51, animeId: 2}]
       setListData(exarr)
+      pushList()
     }
     
     const pushList =  () => {
