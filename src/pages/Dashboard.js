@@ -49,9 +49,11 @@ const Dashboard = ({ user, authenticated }) => {
       console.log('this is our data', data)
     }
     userList()
-  }, [])
+  })
 
-  
+  useEffect(() => {
+    updateWatchlist()
+  }, [])
 
   
 
