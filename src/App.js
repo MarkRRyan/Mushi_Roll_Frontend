@@ -11,6 +11,7 @@ import BrowseAnime from './pages/BrowseAnime.js'
 import BrowseLists from './pages/BrowseLists.js'
 import './styles/App.css'
 import { ListProvider } from './components/ListContext'
+import Player from './components/Player'
 
 
 const App = () => {
@@ -49,6 +50,41 @@ const App = () => {
     handleAnime()
   }, [])
 
+
+
+
+  //---------------------------*
+  const [songs, setSongs] = useState([
+		{
+			"title": "Plastic Love 竹内 まりや",
+			"artist": "Mariya Takeuchi",
+			"album": "VARIETY (1984)",
+			src: "./Mariya-Takeuchi-Plastic-Love-竹内 まりや.mp3"
+		},
+		{
+			"title": "Tank!",
+			"artist": "The Seatbelts",
+			"album": "Cowboy Bebop OP 1",
+			src: "./Cowboy-Bebop-Opening-Theme-Tank!.mp3"
+		}
+	])
+
+  
+
+	const [currentSongIndex,setCurrentSongIndex] = useState(0);
+	const [nextSongIndex,setNextSongIndex] = useState(currentSongIndex + 1);
+
+	useEffect(()=>{
+		setNextSongIndex(()=>{
+		if (currentSongIndex + 1 >songs.length - 1 ){
+			return 0;
+		} else{
+			return currentSongIndex + 1;
+		}
+	});
+	},[currentSongIndex])
+  //---------------------------*
+
   return (
     <div className="App">
       <ListProvider>
@@ -57,6 +93,7 @@ const App = () => {
         user={user}
         handleLogOut={handleLogOut}
       />
+            <Player currentSongIndex={currentSongIndex} setCurrentSongIndex={setCurrentSongIndex} nextSongIndex={nextSongIndex} songs={songs} />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
