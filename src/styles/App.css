@@ -197,58 +197,33 @@ input {
 }
 
 
+.carousel-image { 
+  max-height: 200px;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.body{
-  
-  
+.carousel-container {
+  height: 350px;
   display:flex;
   justify-content: center;
-  background-color: #d5b0e8;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.carousel {
-  height: 250px;
+.carousel-wrapper {
+  max-height: 350px;
   width: 80%;
   position: relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid pink;
+  border-radius: 25px
 }
 
-.carousel .switchLeft,
-.carousel .switchRight {
+.switchLeft,
+.switchRight {
   color:white;
   font-weight: bold;
   height:100%;
@@ -263,24 +238,32 @@ input {
 }
 
 
-.carousel .switchLeft {
+.switchLeft {
   position: absolute;
   left: -50px;
 }
 
-.carousel .switchRight {
+.switchRight {
   position: absolute;
   right: -50px
 }
 
 .carouselbox{
-  height: 250px;
+  max-height: 100%;
+  overflow-y: hidden;
   width: auto;
-  overflow:scroll;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
   white-space: nowrap;
-  display: inline-block;
   text-align:center;
   padding-bottom: 10px !important;
   display:flex;
+  flex-direction: row;
   align-items:center;
+  padding-left: 10px;
+  padding-left: 10px;
+}
+
+.user-list-title {
+  margin-bottom: 0;
 }
