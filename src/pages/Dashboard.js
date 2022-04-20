@@ -1,18 +1,25 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { ListContext } from "../components/ListContext";
 import ListPreviewDetail from '../components/ListPreviewDetail.jsx';
 import UserProfile from '../components/UserProfile.jsx';
-import { PushWatchlist } from '../services/ListServices';
+import { UpdateWatchlist } from '../services/ListServices';
 
 
 const Dashboard = ({ user, authenticated }) => {
-  const [listData, setListData] = useState([])
+  const [listData, setListData] = useState([{
+    userId:"",
+    animeId:""
+  }])
+  // const [postList, setPostList] = useState()
 
   let watch = []
   
   const updateWatchlist = async () => {
+      // const data = await UpdateWatchlist(watchlist.id, user.id)
+      // console.log(watchlist[0].id)
+      // console.log(user.id)
       watch = await (watchlist.map((item)=> {
        return(item.id)
       }))
@@ -22,20 +29,16 @@ const Dashboard = ({ user, authenticated }) => {
    
     const GotWatchlist = () => {
       let exarr = []
-      watch.map((newItem)=> {
-
+      let watchAll = watch.map((newItem)=> {
+        // setListData([
+        //   {userId: user.id, animeId: newItem}
+        // ])
         exarr.push({userId: user.id, animeId: newItem})
       })
       console.log(exarr)
       setListData(exarr)
-      pushList()
     }
-    
-    const pushList =  () => {
-     PushWatchlist(listData)
-      console.log('push successful')
-  }
-    
+ 
 
   const {watchlist} = useContext(ListContext)
   const {setWatchlist} = useContext(ListContext)
