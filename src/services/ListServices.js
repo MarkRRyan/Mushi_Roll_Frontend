@@ -37,3 +37,14 @@ export const PushWatchlist = async (data) => {
     throw error
   }
 }
+
+export const DeleteAnimeFromList = async (data) => {
+
+	try {
+    console.log(data)
+	  const res = await Client.delete('/api/watchlists/:user/:anime', data)
+    return res.data
+	} catch (error) {
+	  throw error
+	  }
+  }
