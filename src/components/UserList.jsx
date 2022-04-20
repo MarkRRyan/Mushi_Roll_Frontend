@@ -1,14 +1,12 @@
 import { useState, useRef } from "react"
 
-const UserList = ({list}) => {
+const UserList = ({ list }) => {
     const [clicked, isClicked] = useState(false)
 
 		const carouselElement = useRef(null)
 
-		const handleRight = () => {
-				document.getElementById('scroll').scrollRight += 1
-				console.log(document.getElementById('scroll'))
-				
+		const handleScroll = (scrollOffset) => {
+				carouselElement.current.scrollLeft += scrollOffset;
 		}
 
     return (
@@ -16,19 +14,20 @@ const UserList = ({list}) => {
             {
                 clicked ? (
                     <div className="popup-wrapper">
-                        <h3>{list.username}'s Watchlist</h3>
-                        <button onClick={() => isClicked(false)}>X</button>
-                        <div className="body">
-													<div className="carousel">
-                        		<div ref={carouselElement} className="popup-info carouselbox" id="scroll">
+                        <div className="carousel-container">
+													<div className="carousel-wrapper">
+														<h3 className="user-list-title">{list.username}'s Watchlist                         <button onClick={() => isClicked(false)}>X</button>
+														</h3>
+														<br />
+                        		<div ref={carouselElement} className="carouselbox" id="scroll">
                           	{list.watch_list.map((listItem) => (
                               <h4>{listItem.title}
                               <br />
                               <img className="carousel-image" src={`${listItem.image}`}></img>
                               </h4>
-                          	))}
-														<button className="switchLeft sliderButton"> Left </button> 
-          									<button className="switchRight sliderButton" onClick={()=> handleRight()} >Right</button> 
+                          ))}
+														<button className="switchLeft sliderButton" onClick={() => handleScroll(-200)}>ᐊ</button> 
+          									<button className="switchRight sliderButton" onClick={()=> handleScroll(200)}>ᐅ</button> 
 													</div>
 												</div>
 											</div>
