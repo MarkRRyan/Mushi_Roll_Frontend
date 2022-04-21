@@ -14,20 +14,24 @@ return (
     {
       clicked ? ( 
         <div className='popup-wrapper'>
-            <div className='popup-container' >
-              <img 
- 								src={`${show.image}`} 
-                 alt='poster' 
-                 style={{maxHeight: "500px"}} 
-                 className='popup'/>
-              <div className='popup-info'>
-              <h3>{show.title}
-                <button onClick={()=>isClicked(false)}>x</button>
-              </h3>
-                <p>release: {show.releaseDate}</p>
-                <p>seasons: {show.seasons}</p>
-                <p>episodes: {show.episodes}</p>
-                <p>Synopsis: {show.description}</p>
+          <div className='popup-container' >
+            <div className='popup-info'>
+              <img
+                src={`${show.image}`}
+                alt='poster'
+                style={{maxHeight: "500px"}}
+                className='popup'/>
+              <div className="popup-info-details">
+                <div className="popup-title-wrapper">
+                  <h3 className="popup-title-name">{show.title}
+                    <button className="x-anime" onClick={()=>isClicked(false)}>x</button>
+                  </h3>
+                </div>
+                  <p>release: {show.releaseDate}</p>
+                  <p>seasons: {show.seasons}</p>
+                  <p>episodes: {show.episodes}</p>
+                  <p>Synopsis: {show.description}</p>
+                </div>
               </div>
             </div>
           <div className='overlay'></div>
