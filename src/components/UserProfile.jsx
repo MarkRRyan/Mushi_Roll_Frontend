@@ -40,7 +40,7 @@ const UserProfile = ({renderList, change, setChange}) => {
 			<h3>Your Profile</h3>
 				<h4>email: {localStorage.getItem('watcher')} </h4>
 				<div className="user-list">
-					<button onClick={() => (console.log(renderList))}>test</button>
+					{/* <button onClick={() => (console.log(renderList))}>test</button> */}
 					<h3>Current Watchlist</h3>
 					{renderList.map((newList) => (
 						<div className="user-list-items" key={newList.id}>
@@ -53,7 +53,7 @@ const UserProfile = ({renderList, change, setChange}) => {
 							setTargeted(true)
 							}}
 
-							>Other bUtton</button>
+							>Delete Anime</button>
 						</div>
 					))}
 					
