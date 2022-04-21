@@ -209,6 +209,7 @@ input {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  font-family: 'Coiny', cursive;
 }
 
 .carousel-wrapper {
@@ -288,4 +289,8 @@ input {
 
 .m-player-deets {
   font-family: 'Fredoka One', cursive;
+}
+
+.nav-bar {
+  font-size: 30px;
 }
