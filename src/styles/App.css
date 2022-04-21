@@ -16,6 +16,7 @@ body {
   padding: 0;
   color: white;
   background-color: var(--secondary-bg);
+  font-family: 'Chango', cursive;
 }
 
 .logo {
@@ -285,4 +286,6 @@ input {
   width: 100px;
 }
 
-
+.m-player-deets {
+  font-family: 'Fredoka One', cursive;
+}
