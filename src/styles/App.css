@@ -130,12 +130,17 @@ form label {
   height: 300px;
 }
 
+.popup {
+  border-radius: 20px;
+}
 
 .popup-info {
   text-align: left;
   border: 1px solid pink;
   border-radius: 25px;
   padding: 5px;
+  display: flex;
+  column-gap: 10px;
 }
 
 .add-wrapper p {
@@ -143,6 +148,15 @@ form label {
   margin-top: 0;
   margin-left: 5px;
   color: cyan;
+}
+
+.popup-title-wrapper {
+  display: inline-block;
+  width: 100%;
+}
+
+.x-anime {
+  float: right;
 }
 
 button {
