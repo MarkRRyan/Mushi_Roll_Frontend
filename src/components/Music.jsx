@@ -197,14 +197,14 @@ const Music = () => {
 
 	//autoplays the next song, sets up timers
 	const timerStart = () => {
-	  clearInterval(timer.current)
-	  timer.current = setInterval(() => {
-	    if (audioElement.current.ended) {
-	      skip()
-	    } else {
-	      setTrackProgress(audioElement.current.currentTime)
-	    }
-	  }, [1000])
+	//   clearInterval(timer.current)
+	//   timer.current = setInterval(() => {
+	//     if (audioElement.current.ended) {
+	//       skip()
+	//     } else {
+	//       setTrackProgress(audioElement.current.currentTime)
+	//     }
+	//   }, [1000])
 	}
 	
 

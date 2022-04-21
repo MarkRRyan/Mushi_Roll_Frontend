@@ -1,14 +1,39 @@
 import { DeleteAnimeFromList } from "../services/ListServices"
 import { useParams } from "react-router"
+import { useEffect, useState } from 'react'
 
-const UserProfile = ({renderList}) => {
+const UserProfile = ({renderList, change, setChange}) => {
 
-	let { id } = useParams()
+	// let { id } = useParams()
 
-	const deleteFromList = (id) => {
-		DeleteAnimeFromList(id)
-		// console.log('I am a useless consolelog')
+	const [title, setTitle] = useState('')
+	const [targeted, setTargeted] = useState(false)
+
+	const deleteListItem = async () => {
+		const data = await DeleteAnimeFromList({
+			userId: localStorage.getItem('watcher-id'),
+			animeId: title
+		})
+		console.log(data)
+		setTargeted(false)
+		setChange(true)
+
 	}
+	const targetListItem = () => {
+		if (title.animeId !== '') {
+			deleteListItem()
+
+		}
+	}
+
+	useEffect(() => {
+		if (targeted) {
+			targetListItem()
+		}
+	})
+
+
+	
 
 	return (
 		<div className="user-list-wrapper">
@@ -22,8 +47,13 @@ const UserProfile = ({renderList}) => {
 						<li className="usersLists">
 							{newList.title}
 						</li>
-						<button onClick={() => {(deleteFromList(newList))}}>X</button>
-						<button onClick={() => {(console.log(newList.id))}}>Other bUtton</button>
+						{/* <button onClick={() => {(deleteFromList(newList))}}>X</button> */}
+						<button onClick={() => 
+							{setTitle(newList.id)
+							setTargeted(true)
+							}}
+
+							>Other bUtton</button>
 						</div>
 					))}
 					
