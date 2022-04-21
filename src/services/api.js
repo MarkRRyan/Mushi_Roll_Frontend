@@ -1,8 +1,11 @@
 import Axios from 'axios'
 
-export const BASE_URL = 'http://localhost:3001'
+// export const BASE_URL = 'http://localhost:3001'
+export const apiUrl = process.env.NODE_ENV === 'production' ? 'https://mushi-roll.herokuapp.com/' : 'http://localhost:3001'
 
-const Client = Axios.create({ baseURL: BASE_URL })
+const Client = Axios.create({ baseURL: apiUrl })
+
+
 
 Client.interceptors.request.use(
     (config) => {
@@ -17,6 +20,3 @@ Client.interceptors.request.use(
 
 
 export default Client
-
-
-
