@@ -4,7 +4,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   let authenticatedOptions
   if (user) {
     authenticatedOptions = (
-      <nav>
+      <nav className='nav-bar'>
         <h3>Welcome {user.username}!</h3>
         <Link to="/dashboard">Dashboard</Link>
         <Link onClick={handleLogOut} to="/">
