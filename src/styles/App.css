@@ -16,6 +16,7 @@ body {
   padding: 0;
   color: white;
   background-color: var(--secondary-bg);
+  font-family: 'Chango', cursive;
 }
 
 .logo {
@@ -208,6 +209,7 @@ input {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  font-family: 'Coiny', cursive;
 }
 
 .carousel-wrapper {
@@ -285,4 +287,10 @@ input {
   width: 100px;
 }
 
+.m-player-deets {
+  font-family: 'Fredoka One', cursive;
+}
 
+.nav-bar {
+  font-size: 30px;
+}
