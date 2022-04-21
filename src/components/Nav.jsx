@@ -5,13 +5,13 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   if (user) {
     authenticatedOptions = (
       <nav className='nav-bar'>
-        <h3>Welcome {user.username}!</h3>
-        <Link to="/dashboard">Dashboard</Link>
+        <h3>🍙 Welcome {user.username}!</h3>
+        <Link to="/dashboard">🥟 Dashboard</Link>
         <Link onClick={handleLogOut} to="/">
-          Sign Out
+          🍤 Sign Out
         </Link>
-			  <Link to="/browse_anime">Browse Anime</Link>
-			  <Link to="/browse_lists">Browse Lists</Link>
+			  <Link to="/browse_anime">🍚 Browse Anime</Link>
+			  <Link to="/browse_lists">🍘 Browse Lists</Link>
         </nav>
     )
   }
