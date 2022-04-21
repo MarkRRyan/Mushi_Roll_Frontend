@@ -172,31 +172,31 @@ const Music = () => {
 
 	//----------------------------------------*
 	//TRACK TIMERS
-	useEffect(() => {
+	// useEffect(() => {
 		//When component unmounts, clear the timer/pause track. Pretty cool bit of code to learn about, I had no idea useEffect had this functionality
-		return () => {
-			audioElement.current.pause()
-			clearInterval(timer.current)
-		}
-	}, [])
+	// 	return () => {
+	// 		audioElement.current.pause()
+	// 		clearInterval(timer.current)
+	// 	}
+	// }, [])
 
 	//Sets up our track progress & seek when the track changes
-	useEffect(() => {
-		setTrackProgress(audioElement.current.currentTime)
-		seekElement.current.max = audioElement.current.duration
+	// useEffect(() => {
+	// 	setTrackProgress(audioElement.current.currentTime)
+	// 	seekElement.current.max = audioElement.current.duration
 
 		//starts the timer when the component mounts
-		if (ready.current) {
-			timerStart()
-		} else {
+		// if (ready.current) {
+		// 	timerStart()
+		// } else {
 			//sets up the gatekeeper on a rerender
-			ready.current = true
-		}
-	}, [track])
+	// 		ready.current = true
+	// 	}
+	// }, [track])
 
 
 	//autoplays the next song, sets up timers
-	const timerStart = () => {
+	// const timerStart = () => {
 	//   clearInterval(timer.current)
 	//   timer.current = setInterval(() => {
 	//     if (audioElement.current.ended) {
@@ -205,7 +205,7 @@ const Music = () => {
 	//       setTrackProgress(audioElement.current.currentTime)
 	//     }
 	//   }, [1000])
-	}
+	// }
 	
 
 	//----------------------------------------*
@@ -235,20 +235,20 @@ const Music = () => {
 
 	//----------------------------------------*
 	//SEEK FUNCTIONS
-	const onSeek = (value) => {
+	// const onSeek = (value) => {
 		// Clear any timers already running
-		audioElement.current.currentTime = value
-		setTrackProgress(audioElement.current.currentTime)
-	}
+	// 	audioElement.current.currentTime = value
+	// 	setTrackProgress(audioElement.current.currentTime)
+	// }
 		
-	const onSeekEnd = () => {
+	// const onSeekEnd = () => {
 		// If not already playing, start
-		if (!playing) {
-			clearInterval(timer.current)
-			isPlaying(true)
-		}
-		timerStart()
-	}
+	// 	if (!playing) {
+	// 		clearInterval(timer.current)
+	// 		isPlaying(true)
+	// 	}
+	// 	timerStart()
+	// }
 	//----------------------------------------*
 
 
@@ -276,7 +276,7 @@ const Music = () => {
           setVolume(event.target.valueAsNumber)
         }}
       />
-			<input
+			{/* <input
 				ref={seekElement}
         type="range"
         value={trackProgress}
@@ -287,7 +287,7 @@ const Music = () => {
         onChange={(e) => onSeek(e.target.value)}
         onMouseUp={onSeekEnd}
         onKeyUp={onSeekEnd}
-      />
+      /> */}
 			<MusicControls
 				playing={playing}
 				isPlaying={isPlaying}
