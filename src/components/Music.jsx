@@ -5,12 +5,21 @@ import MusicControls from "./MusicControls"
 
 const Music = () => {
 
+	//----------------------------------------*
+	//AUDIO CONTROL
 	const audioElement = useRef(null)
 	const [playing, isPlaying] = useState(false)
 	const [track, setTrack] = useState(0)
 	const [nextTrack, setNextTrack] = useState(track + 1)
-	const [skipped, isSkipped] = useState(true)
 	const [volume, setVolume] = useState(1)
+
+	//----------------------------------------*
+	//TIMERS
+	const seekRef = useRef(null);
+	const intervalRef = useRef();
+  const isReady = useRef(false);
+	const [trackProgress, setTrackProgress] = useState(0);
+
 
 
 	const songs = [
@@ -143,6 +152,9 @@ const Music = () => {
 		)
 	})
 
+
+	//----------------------------------------*
+	//SETS UPCOMING TRACK
 	useEffect(()=>{
 		setNextTrack(()=>{
 		if (track + 1 > songs.length - 1 ) {
@@ -152,9 +164,47 @@ const Music = () => {
 		}
 	})
 	}, [track])
+	
 
+	//----------------------------------------*
+	//TRACK TIMERS
+	useEffect(() => {
+		// Pause and clean up on unmount
+		return () => {
+			audioElement.current.pause();
+			clearInterval(intervalRef.current);
+		}
+	}, []);
 
-	const skip = () => {
+	// Handle setup when changing tracks
+	useEffect(() => {
+		setTrackProgress(audioElement.current.currentTime);
+		seekRef.current.max = audioElement.current.duration
+		if (isReady.current) {
+			startTimer();
+		} else {
+			// Set the isReady ref as true for the next pass
+			isReady.current = true;
+		}
+	}, [track]);
+
+	const startTimer = () => {
+	  clearInterval(intervalRef.current);
+
+		//autoplays the next song
+	  intervalRef.current = setInterval(() => {
+	    if (audioElement.current.ended) {
+	      skip();
+	    } else {
+	      setTrackProgress(audioElement.current.currentTime);
+	    }
+	  }, [1000]);
+	}
+	
+
+	//----------------------------------------*
+	//SKIPS TO NEXT TRACK
+	const skip = (skipped = true) => {
 		(skipped) ? (
 				setTrack(() => {
 					let thisTrack = track
@@ -173,8 +223,27 @@ const Music = () => {
 						}
 						return thisTrack
 				})
-		)
+			)
+		}
+
+
+	//----------------------------------------*
+	//SEEK FUNCTIONS
+	const onSeek = (value) => {
+		// Clear any timers already running
+		audioElement.current.currentTime = value
+		setTrackProgress(audioElement.current.currentTime);
 	}
+		
+	const onSeekEnd = () => {
+		// If not already playing, start
+		if (!playing) {
+			clearInterval(intervalRef.current);
+			isPlaying(true);
+		}
+		startTimer();
+	}
+	//----------------------------------------*
 
 
 
@@ -187,6 +256,9 @@ const Music = () => {
 			<MusicDetails 
 				song={songs[track]}
 			/>
+			<div className="next-track">
+				<h6>[next track]: {songs[nextTrack].title}</h6>
+			</div>
 			<input
 				className="vol"
       	type="range"
@@ -198,11 +270,22 @@ const Music = () => {
           setVolume(event.target.valueAsNumber)
         }}
       />
+			<input
+				ref={seekRef}
+        type="range"
+        value={trackProgress}
+        step="1"
+        min="0"
+        max={audioElement.current?.duration}
+        className="progress"
+        onChange={(e) => onSeek(e.target.value)}
+        onMouseUp={onSeekEnd}
+        onKeyUp={onSeekEnd}
+      />
 			<MusicControls
 				playing={playing}
 				isPlaying={isPlaying}
 				skip={skip}
-				isSkipped={isSkipped}
 			/>
 		</div>
 	)
