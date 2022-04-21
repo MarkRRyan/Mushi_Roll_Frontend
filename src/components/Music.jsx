@@ -6,7 +6,7 @@ import MusicControls from "./MusicControls"
 const Music = () => {
 
 	//----------------------------------------*
-	//AUDIO CONTROL
+	//AUDIO CONTROL STATES
 	const audioElement = useRef(null)
 	const [playing, isPlaying] = useState(false)
 	const [track, setTrack] = useState(0)
@@ -14,14 +14,16 @@ const Music = () => {
 	const [volume, setVolume] = useState(1)
 
 	//----------------------------------------*
-	//TIMERS
-	const seekRef = useRef(null);
-	const intervalRef = useRef();
-  const isReady = useRef(false);
-	const [trackProgress, setTrackProgress] = useState(0);
+	//TIMER STATES & REFS
+	const seekElement = useRef(null)
+	const timer = useRef()
+	const [trackProgress, setTrackProgress] = useState(0)
 
+	//Used as a 'gatekeeper' to determine when stuff runs
+	const ready = useRef(false)
 
-
+	//----------------------------------------*
+	//PLAYLIST
 	const songs = [
 		{
 			"title": "Plastic Love 竹内 まりや",
@@ -140,6 +142,8 @@ const Music = () => {
 	]
 
 
+	//----------------------------------------*
+	//AUDIO CONTROLS
 	useEffect(() => {
 		audioElement.current.volume = volume
 	}, [volume])
@@ -154,7 +158,7 @@ const Music = () => {
 
 
 	//----------------------------------------*
-	//SETS UPCOMING TRACK
+	//UPCOMING TRACK
 	useEffect(()=>{
 		setNextTrack(()=>{
 		if (track + 1 > songs.length - 1 ) {
@@ -169,36 +173,38 @@ const Music = () => {
 	//----------------------------------------*
 	//TRACK TIMERS
 	useEffect(() => {
-		// Pause and clean up on unmount
+		//When component unmounts, clear the timer/pause track. Pretty cool bit of code to learn about, I had no idea useEffect had this functionality
 		return () => {
-			audioElement.current.pause();
-			clearInterval(intervalRef.current);
+			audioElement.current.pause()
+			clearInterval(timer.current)
 		}
-	}, []);
+	}, [])
 
-	// Handle setup when changing tracks
+	//Sets up our track progress & seek when the track changes
 	useEffect(() => {
-		setTrackProgress(audioElement.current.currentTime);
-		seekRef.current.max = audioElement.current.duration
-		if (isReady.current) {
-			startTimer();
+		setTrackProgress(audioElement.current.currentTime)
+		seekElement.current.max = audioElement.current.duration
+
+		//starts the timer when the component mounts
+		if (ready.current) {
+			timerStart()
 		} else {
-			// Set the isReady ref as true for the next pass
-			isReady.current = true;
+			//sets up the gatekeeper on a rerender
+			ready.current = true
 		}
-	}, [track]);
+	}, [track])
 
-	const startTimer = () => {
-	  clearInterval(intervalRef.current);
 
-		//autoplays the next song
-	  intervalRef.current = setInterval(() => {
+	//autoplays the next song, sets up timers
+	const timerStart = () => {
+	  clearInterval(timer.current)
+	  timer.current = setInterval(() => {
 	    if (audioElement.current.ended) {
-	      skip();
+	      skip()
 	    } else {
-	      setTrackProgress(audioElement.current.currentTime);
+	      setTrackProgress(audioElement.current.currentTime)
 	    }
-	  }, [1000]);
+	  }, [1000])
 	}
 	
 
@@ -232,16 +238,16 @@ const Music = () => {
 	const onSeek = (value) => {
 		// Clear any timers already running
 		audioElement.current.currentTime = value
-		setTrackProgress(audioElement.current.currentTime);
+		setTrackProgress(audioElement.current.currentTime)
 	}
 		
 	const onSeekEnd = () => {
 		// If not already playing, start
 		if (!playing) {
-			clearInterval(intervalRef.current);
-			isPlaying(true);
+			clearInterval(timer.current)
+			isPlaying(true)
 		}
-		startTimer();
+		timerStart()
 	}
 	//----------------------------------------*
 
@@ -271,7 +277,7 @@ const Music = () => {
         }}
       />
 			<input
-				ref={seekRef}
+				ref={seekElement}
         type="range"
         value={trackProgress}
         step="1"
