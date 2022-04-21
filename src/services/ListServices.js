@@ -42,7 +42,7 @@ export const DeleteAnimeFromList = async (data) => {
 
 	try {
     console.log(data)
-	  const res = await Client.delete('/api/watchlists/:user/:anime', data)
+	  const res = await Client.delete(`/api/watchlists/${data.userId}/${data.animeId}`)
     return res.data
 	} catch (error) {
 	  throw error

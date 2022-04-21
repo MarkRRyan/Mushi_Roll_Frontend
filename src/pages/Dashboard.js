@@ -95,6 +95,8 @@ return (user && authenticated) ? (
         renderList={renderList}
         key={renderList.id}
         title={renderList.title}
+        change={change}
+        setChange={setChange}
       />
     </div>
   </div>
