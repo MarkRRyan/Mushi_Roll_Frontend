@@ -281,4 +281,8 @@ input {
   overflow-y: scroll;
 }
 
+.vol {
+  width: 100px;
+}
+
 
