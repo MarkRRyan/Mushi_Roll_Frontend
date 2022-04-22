@@ -24,7 +24,7 @@ return (
               <div className="popup-info-details">
                 <div className="popup-title-wrapper">
                   <h3 className="popup-title-name">{show.title}
-                    <button className="x-anime button button-2" onClick={()=>isClicked(false)}>x</button>
+                    <button className="x-anime button-2B button-1" onClick={()=>isClicked(false)}>x</button>
                   </h3>
                 </div>
                   <p>release: {show.releaseDate}</p>

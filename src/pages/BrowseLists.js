@@ -20,7 +20,7 @@ const BrowseLists = ({ user, authenticated}) => {
   return (user && authenticated) ? (
     <div className="wrapper">
 			<h2>Browse the Watchlists</h2>
-      <div className="browse-user"> 
+      <div className="browse-users-container"> 
             {
               lists.map((list) => (
                 <UserList
