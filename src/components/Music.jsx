@@ -260,7 +260,7 @@ const Music = ({authenticated}) => {
 
 
 	return (
-		<div className="music-player" style={{display: show ? 'block' : 'none'}}>
+		<div className="music-player" style={{display: show ? 'none' : 'block'}}>
  			<audio
  				src={songs[track].src}
  				ref={audioElement}
