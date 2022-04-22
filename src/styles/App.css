@@ -101,7 +101,7 @@ form label {
 
 .title-bar {
   padding: 20px;
-  height: 60px;
+  height: 100px;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   background: rgba(0, 0, 0, 0.718);
@@ -151,6 +151,10 @@ form label {
   padding: 5px;
   display: flex;
   column-gap: 10px;
+}
+.popup-info-details{
+  font-family:'Fredoka One', cursive;
+  font-size: 20px;
 }
 
 .add-wrapper p {
@@ -232,7 +236,7 @@ input {
   width: 45px;
   font-size:25px;
   text-align: center;
-  background-color: aqua;
+  background-color: rgb(121, 41, 232);
   font-family: sans-serif;
   top: 10%;
 }
@@ -352,8 +356,8 @@ input {
     margin-bottom: 30px;
     cursor: pointer;
     display: inline-block;
-    font-family:'Chango', cursive; 
-    font-size: 10%;
+    font-family:'Fredoka One', cursive; 
+    font-size: 12%;
   }
 
 
@@ -369,7 +373,7 @@ input {
     margin-bottom: 30px;
     cursor: pointer;
     display: inline-block;
-    font-family:'Chango', cursive; 
+    font-family:'Fredoka One', cursive; 
     font-size: 80%;
   }
 
@@ -382,6 +386,7 @@ input {
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
     color: #f9bcf1;
+    font-family: 'Fredoka One', cursive
   }
   .button-2:hover {
     box-shadow: 0 0 10px 0 #fa02d5 inset, 0 0 20px 2px #ffffff;
@@ -396,6 +401,7 @@ input {
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
     color: #f9bcf1;
+    font-family:'Fredoka One', cursive
   }
   .button-3:hover {
     box-shadow: 0 0 10px 0 #fa02d5 inset, 0 0 20px 2px #c300ff;
