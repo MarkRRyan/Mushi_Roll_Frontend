@@ -36,12 +36,12 @@ const UserList = ({ list }) => {
 					<div className="overlay"></div>
         </div>
         ) : (
-					<div>
-           	<h3 className='browse-users container custom-scrollbar-thumb'> 
+					<div className='browse-user '>
 						<img className="happy-sushi" src="https://i.ibb.co/Vq3MCc7/Untitled-design-2.png" alt='happy sushi'/>
-						{list.username}
-						<button className="button-2B button-2" onClick={() => isClicked(true) }>Show List</button>
-					</h3>					
+           				<h3 className='browse-user-title'> 
+						   {list.username}
+						</h3>	
+						<button className="button-2B button-2" onClick={() => isClicked(true) }>Show List</button>				
 				</div>
         )
       }
