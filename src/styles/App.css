@@ -17,6 +17,9 @@ body {
   color: white;
   background-color: var(--secondary-bg);
   font-family: 'Chango', cursive;
+  list-style: none;
+  font: size 15px;
+
 }
 
 .logo {
@@ -29,11 +32,13 @@ nav {
 }
 
 .nav-bar {
-  font-size: 24px;
+  font-size: 30px;
+  
 }
 
 nav a,
 nav h3 {
+  text-decoration: none;
   text-decoration-color: var(--primary-bg);
   margin: auto 1em;
   color: var(--link-color-primary);
@@ -44,8 +49,10 @@ nav h3 {
 }
 
 nav a:hover {
-  color: var(--link-color-secondary);
-  text-decoration-color: var(--link-color-primary);
+  box-shadow: 0 0 10px 0 #f803f4 inset, 0 0 20px 2px #9301fc;
+  border: 1px solid #ff03ee;
+  border-radius: 50px;
+
 }
 
 form,
@@ -196,6 +203,7 @@ button {
 
 .user-list {
   border-top: 1px solid pink;
+  
 }
 
 
@@ -212,6 +220,7 @@ input {
   border: 5px solid #e0c2c2;
   color: #000000;
   font-size: 18px;
+
 }
 
 
@@ -266,25 +275,23 @@ input {
   max-height: 350px;
   width: 80%;
   position: relative;
-  align-items: center;
   border: 1px solid pink;
   border-radius: 25px
 }
 
 .carouselbox {
-  max-height: 100%;
-  max-width: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
   scroll-behavior: smooth;
   text-align:center;
   padding-bottom: 10px;
-  display:flex;
-  justify-content: center;
-  /* align-items:center; */
+  display: flex;
+  flex-shrink: 0;
+  gap:10px
 }
 
 .list-icon {
+  flex-shrink: 0;
   width: 200px;
   height: 200px;
   border: 1px solid pink;
@@ -294,7 +301,7 @@ input {
 }
 
 .user-list-title {
-  margin: 10px;
+  margin-bottom: 0;
 }
 
 .carouselbox::-webkit-scrollbar {
@@ -316,4 +323,144 @@ input {
 
 .m-player-deets {
   font-family: 'Fredoka One', cursive;
+}
+
+
+.button-1 {
+ 
+    background-color: transparent;
+    border: 3px solid #b16cff;
+    border-radius: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    color: #f9bcf1;
+  }
+  .button-1:hover {
+    box-shadow: 0 0 10px 0 #fa02d5 inset, 0 0 20px 2px #9d0bfe;
+    border: 3px solid #ff12b8;
+  }
+
+  .button {
+    width: 103px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    display: inline-block;
+    font-family:'Chango', cursive; 
+    font-size: 10%;
+  }
+
+
+  .button-2B {
+    width: 103px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    display: inline-block;
+    font-family:'Chango', cursive; 
+    font-size: 50%;
+  }
+
+
+  .button-2 {
+ 
+    background-color: transparent;
+    border: 3px solid #b16cff;
+    border-radius: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    color: #f9bcf1;
+  }
+  .button-2:hover {
+    box-shadow: 0 0 10px 0 #fa02d5 inset, 0 0 20px 2px #ffffff;
+    border: 3px solid #ff12b8;
+  }
+
+  .button-3 {
+ 
+    background-color: transparent;
+    border: 3px solid #b16cff;
+    border-radius: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    color: #f9bcf1;
+  }
+  .button-3:hover {
+    box-shadow: 0 0 10px 0 #fa02d5 inset, 0 0 20px 2px #c300ff;
+    border: 3px solid #ff12b8;
+  }
+  .button3b {
+    width: 103px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 40;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: inline-block;
+    font-family:'Chango', cursive; 
+    font-size: 12px;
+  }
+.user-list-items{
+  padding-bottom: 1px;
+  margin: 5px;
+  
+}
+ 
+/* .wrapper{
+ 
+  border: 3px solid pink;
+  border-width: 2px;
+  margin: 0 10% 0 10%;
+  padding:10px;
+  border-radius: 50px; 
+  overflow-y: scroll;
+  overflow: hidden;
+  
+} */
+
+.browse-users{
+  border: 3px solid pink;
+  margin: 0 15% 0 15%;
+  border-radius: 50px;
+  padding-bottom: 0px;
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex: 2 1 auto; 
+  font-size: 20px;
+  flex-direction:column;
+  
+}
+
+
+.happy-sushi{
+  width: 80px;
+
+}
+ 
+.browse-user{
+  grid-row-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr))
+}
+.browse-users:hover {
+  box-shadow: 0 0 10px 0 #fa02d5 inset, 0 0 20px 2px #ffffff;
+  border: 3px solid #ff12b8;
 }
