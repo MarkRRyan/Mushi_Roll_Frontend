@@ -198,9 +198,21 @@ input {
 
 
 .carousel-image { 
+ 
   max-height: 200px;
+ padding-top: 40px;
+ 
 }
+.anime-title{
+  display:inline-flex;
+  width:20px;
+  flex-wrap: wrap;
+  width:fit-content;
+  justify-content: center;
 
+ 
+
+}
 
 .carousel-container {
   height: 350px;
@@ -219,7 +231,8 @@ input {
   align-items: center;
   flex-wrap: wrap;
   border: 1px solid pink;
-  border-radius: 25px
+  border-radius: 25px;
+  
 }
 
 .switchLeft,
@@ -252,8 +265,8 @@ input {
   max-height: 100%;
   overflow-y: hidden;
   width: auto;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
+  overflow-x:scroll;
+  scroll-behavior:smooth;
   white-space: nowrap;
   text-align:center;
   padding-bottom: 10px !important;
@@ -262,10 +275,13 @@ input {
   align-items:center;
   padding-left: 10px;
   padding-left: 10px;
+  justify-content: space-between;
+  gap:30px
+ 
 }
 
 .user-list-title {
-  margin-bottom: 0;
+  margin: 10px;
 }
 
 .carouselbox::-webkit-scrollbar {
@@ -285,4 +301,7 @@ input {
   width: 100px;
 }
 
-
+.browse-userlist{
+  display:flex;
+  
+}
