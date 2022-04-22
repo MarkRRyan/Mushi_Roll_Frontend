@@ -21,12 +21,12 @@ const BrowseAnime = ({ user, authenticated, anime }) => {
   </div>
 ) : (
   <div className='protected'>
-    <img 
-      className="sad-mushi"
-      src='https://imgur.com/nAbKh6q.png' 
-      alt='sad mushi' 
-      onClick={()=> navigate('/signin')} 
-    />
+     <img 
+        className="sad-mushi-image"
+        src='https://imgur.com/nAbKh6q.png' 
+        alt='sad mushi' 
+        onClick={()=> navigate('/signin')} 
+      />
   </div>
 )
 }

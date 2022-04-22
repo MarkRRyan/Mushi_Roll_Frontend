@@ -706,3 +706,8 @@ span {
     background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
 }
+
+.sad-mushi-image {
+  height: 400px;
+  cursor: pointer;
+}

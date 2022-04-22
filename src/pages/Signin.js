@@ -30,7 +30,7 @@ const Signin = (props) => {
 
   return (
     <div className="signin">
-			<h3>this is signin</h3>
+			<h3>SignIn</h3>
       <div className="signin-form">
         <form className="form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
