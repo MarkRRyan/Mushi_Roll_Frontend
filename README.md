@@ -52,6 +52,7 @@ Want to get started using MUSHI ROLL yourself?! Here's how!
 - NODE
 - EXPRESS
 - POSTRESQL
+- HEROKU
 *** 
 
 ## Bug List
