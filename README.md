@@ -73,4 +73,11 @@ Want to get started using MUSHI ROLL yourself?! Here's how!
 ### Credits:
 > ![credits](https://imgur.com/K7Li1WV.png)
 > - [Duck Duck Go Images](https://www.google.com/imghp?hl=en&authuser=0&ogbl): Various images used throughout the ReadMe and project
-> - [Youtube](https://www.youtube.com/watch?v=sOvvuU9knBA): Netflix Carousel - How to Make Responsive Carousel (Slider) using HTML, CSS and Javascript Tutorial. Used to help us make the user lists looks so good.
+> - [Youtube](https://www.youtube.com/watch?v=sOvvuU9knBA): Netflix Carousel - How to Make Responsive Carousel (Slider) using HTML, CSS and Javascript Tutorial. Used for the inspiration for our watchlist carousel
+> ### Building a music player in React native
+> - [source 1](https://aviyel.com/post/1193/building-a-music-player-application-in-react-js)
+> - [source 2](https://letsbuildui.dev/articles/building-an-audio-player-with-react-hooks)
+> - [scroll on click](https://stackoverflow.com/questions/60729924/react-scroll-component-horizontally-on-button-click)
+> - [sparkly button](https://webdeasy.de/en/top-css-buttons-en/)
+> ### Tools
+> - [SCSS to CSS compiler](https://www.cssportal.com/scss-to-css/)
