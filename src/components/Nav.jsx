@@ -5,6 +5,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   if (user) {
     authenticatedOptions = (
       <nav className='nav-bar'>
+<<<<<<< HEAD
         <h3>🍙 Welcome {user.username}!</h3>
         <Link to="/dashboard">🥟 Dashboard</Link>
         <Link onClick={handleLogOut} to="/">
@@ -12,6 +13,13 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
         </Link>
 			  <Link to="/browse_anime">🍚 Browse Anime</Link>
 			  <Link to="/browse_lists">🍘 Browse Lists</Link>
+=======
+        <h3>Welcome {user.username}!</h3>
+        <Link onClick={handleLogOut} to="/">Sign Out</Link>
+        <Link to="/dashboard">Dashboard</Link>
+			  <Link to="/browse_anime">Browse Anime</Link>
+			  <Link to="/browse_lists">Browse Lists</Link>
+>>>>>>> 8bd5ce0e0576fdde35fe397629a4e7a657e4d78a
         </nav>
     )
   }
