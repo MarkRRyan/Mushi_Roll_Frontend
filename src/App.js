@@ -16,6 +16,8 @@ import Music from './components/Music'
 
 const App = () => {
 
+  console.log(process.env.NODE_ENV)
+
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [anime, setAnime] = useState([])
