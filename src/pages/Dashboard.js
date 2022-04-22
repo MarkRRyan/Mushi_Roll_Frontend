@@ -77,8 +77,8 @@ return (user && authenticated) ? (
   <div className="dashboard">
     <div className='list-preview-pane'>
       <h3>Watchlist Preview</h3>
-      <button className='dash-button button button-1' onClick={() => setWatchlist([])}>Clear Preview</button>
-      <button className='button button-1' onClick={() => updateWatchlist()} >Save To Watchlist</button>
+      <button className='dash-button button3b button-2' onClick={() => setWatchlist([])}>Clear Preview</button>
+      <button className='button3b button-2' onClick={() => updateWatchlist()} >Save To Watchlist</button>
       <div className="anime-grid">
         {watchlist.map((show) => (
           <ListPreviewDetail 

@@ -49,9 +49,8 @@ const UserProfile = ({renderList, change, setChange}) => {
 							{setTitle(newList.id)
 							setTargeted(true)
 							}}
-							>
-							Delete Show
-							</button>
+
+							>Delete Anime</button>
 						</div>
 					))}
 					
