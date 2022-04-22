@@ -27,8 +27,6 @@ const BrowseAnime = ({ user, authenticated, anime }) => {
       alt='sad mushi' 
       onClick={()=> navigate('/signin')} 
     />
-    {/* <br />
-    <button onClick={()=> navigate('/signin')}>Sign in</button> */}
   </div>
 )
 }

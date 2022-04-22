@@ -15,7 +15,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   }
 
   const publicOptions = (
-    <nav>
+    <nav className='nav-bar'>
       <Link to="/">Home</Link>
       <Link to="/register">Register</Link>
       <Link to="/signin">Sign In</Link>

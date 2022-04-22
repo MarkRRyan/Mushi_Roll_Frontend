@@ -17,7 +17,7 @@ const UserList = ({ list }) => {
 						<div className="carousel-container">
 						<div className="carousel-wrapper">
 							<h3 className="user-list-title">{list.username}'s Watchlist
-							<button className='button button-2'onClick={() => isClicked(false)}>X</button>
+							<button className='x-list'onClick={() => isClicked(false)}>X</button>
 							</h3>
 							<br />
               <div ref={carouselElement} className="carouselbox" id="scroll">

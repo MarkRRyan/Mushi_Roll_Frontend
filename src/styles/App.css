@@ -51,7 +51,7 @@ nav h3 {
 nav a:hover {
   box-shadow: 0 0 10px 0 #f803f4 inset, 0 0 20px 2px #9301fc;
   border: 1px solid #ff03ee;
-  border-radius: 50px;
+  border-radius: 20px;
 
 }
 
@@ -101,7 +101,7 @@ form label {
 
 .list-title-bar {
   padding: 5px;
-  height: 60px;
+  height: 80px;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   background: rgba(0, 0, 0, 0.718);
@@ -117,6 +117,10 @@ form label {
 
 .title-bar h3 {
   margin-top: 0;
+}
+
+.email {
+  font-family: 'Fredoka One', cursive;
 }
 
 .overlay {
@@ -181,9 +185,6 @@ form label {
   float: right;
 }
 
-button {
-  border-radius: 8px;
-}
 
 .dashboard {
   display: flex;
@@ -329,10 +330,38 @@ input {
   overflow-y: scroll;
 }
 
+.button {
+  width: fit-content;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: auto;
+  cursor: pointer;
+  display: inline-block;
+  font-family:'Fredoka One', cursive; 
+  font-size: 12%;
+}
+.dash-buttons {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  gap: 5px;
+}
+
 .button-1 {
+    margin-top: 50px;
+    width: 300px;
+    height: 50px;
+    font-size: 30px;
     background-color: transparent;
     border: 3px solid #b16cff;
-    border-radius: 50px;
+    border-radius: 20px;
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
     color: #f9bcf1;
@@ -340,21 +369,6 @@ input {
   .button-1:hover {
     box-shadow: 0 0 10px 0 #fa02d5 inset, 0 0 20px 2px #9d0bfe;
     border: 3px solid #ff12b8;
-  }
-
-  .button {
-    width: fit-content;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    text-transform: uppercase;
-    font-weight: 600;
-    margin: auto;
-    cursor: pointer;
-    display: inline-block;
-    font-family:'Fredoka One', cursive; 
-    font-size: 12%;
   }
 
 
@@ -374,16 +388,21 @@ input {
     font-family:'Fredoka One', cursive; 
     font-size: 80%;
   }
+  .button-2B:hover {
+    box-shadow: 0 0 10px 0 #fa02d5 inset, 0 0 20px 2px #9d0bfe;
+    border: 3px solid #ff12b8;
+  }
 
 
   .button-2 {
-    width:fit-content;
+    width: fit-content;
     background-color: transparent;
     border: 3px solid #b16cff;
-    border-radius: 50px;
+    border-radius: 8px;
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
     color: #f9bcf1;
+    font-size: 10px;
     font-family: 'Fredoka One', cursive
   }
   .button-2:hover {
@@ -392,10 +411,9 @@ input {
   }
 
   .button-3 {
- 
     background-color: transparent;
     border: 3px solid #b16cff;
-    border-radius: 50px;
+    border-radius: 10px;
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
     color: #f9bcf1;
@@ -407,8 +425,10 @@ input {
   }
   .button3b {
     width: fit-content;
+    border-radius: 10px;
     padding-top: 5px;
     padding-bottom: 10px;
+
     text-align: center;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
@@ -421,21 +441,43 @@ input {
     font-family:'Fredoka One', cursive; 
     font-size: 10px;
   }
+
+
+  .x-list {
+    height: 30px;
+    margin-left: 6px;
+    width: fit-content;
+    background-color: transparent;
+    border: 3px solid #b16cff;
+    border-radius: 8px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    color: #f9bcf1;
+    font-size: 10px;
+    font-family: 'Fredoka One', cursive
+  }
+  .x-list:hover {
+    box-shadow: 0 0 10px 0 #fa02d5 inset, 0 0 20px 2px #ffffff;
+    border: 3px solid #ff12b8;
+  }
+
+
+
+
 .user-list-items{
   padding-bottom: 1px;
   margin: 5px;
   
 }
  
-.browse-user{
-
-display:flex;
-flex-direction: column;
-justify-items:center;
-border: 3px solid pink;
-border-radius: 50px;
-width:330px;
-height:250px;
+.browse-user {            
+  display:flex;
+  flex-direction: column;
+  justify-items:center;
+  border: 3px solid pink;
+  border-radius: 50px;
+  width:330px;
+  height:250px;
 
 }
 .browse-user:hover {
@@ -444,14 +486,14 @@ height:250px;
 }
 
 
-.browse-user-title{
+.browse-user-title {
   padding-bottom: 0px;
 
 }
 
 
 
-.happy-sushi{
+.happy-sushi {
   width: 80px;
   margin-left: auto;
   margin-right:auto;
@@ -459,7 +501,7 @@ height:250px;
 
 }
  
-.browse-users-container{
+.browse-users-container {
 
   display:flex;
   flex-wrap: wrap;
@@ -467,7 +509,7 @@ height:250px;
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
-  gap:10px
+  gap:10px;
 }
 
 

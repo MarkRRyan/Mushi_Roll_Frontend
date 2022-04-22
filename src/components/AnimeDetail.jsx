@@ -50,7 +50,7 @@ return (
                 <button onClick={()=>isClicked(true)}  className='a-detail-button button-2b button-2'>Show Info</button><p>★</p>
                 </div>
               ) : (
-                <div className="add-wrapper">
+                <div className="dash-buttons add-wrapper">
                 <button onClick={()=>isClicked(true)}  className='a-detail-button button-2b button-2'>Show Info</button>
                 <button className='button2b button-2' onClick={() => {
                   setWatchlist([...watchlist, show])
