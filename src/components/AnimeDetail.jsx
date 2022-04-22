@@ -24,7 +24,7 @@ return (
               <div className="popup-info-details">
                 <div className="popup-title-wrapper">
                   <h3 className="popup-title-name">{show.title}
-                    <button className="x-anime" onClick={()=>isClicked(false)}>x</button>
+                    <button className="x-anime button button-2" onClick={()=>isClicked(false)}>x</button>
                   </h3>
                 </div>
                   <p>release: {show.releaseDate}</p>
@@ -47,12 +47,12 @@ return (
             {
               add ? (
                 <div className="add-wrapper">
-                <button onClick={()=>isClicked(true)}  className='a-detail-button'>Show Info</button><p>★</p>
+                <button onClick={()=>isClicked(true)}  className='a-detail-button button-2b button-2'>Show Info</button><p>★</p>
                 </div>
               ) : (
                 <div className="add-wrapper">
-                <button onClick={()=>isClicked(true)}  className='a-detail-button'>Show Info</button>
-                <button onClick={() => {
+                <button onClick={()=>isClicked(true)}  className='a-detail-button button-2b button-2'>Show Info</button>
+                <button className='button2b button-2' onClick={() => {
                   setWatchlist([...watchlist, show])
                   isAdded(true)
                   }}>Add to Watchlist</button> 

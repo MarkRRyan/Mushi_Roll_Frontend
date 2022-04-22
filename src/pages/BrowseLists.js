@@ -23,8 +23,9 @@ const BrowseLists = ({ user, authenticated}) => {
   }, [])
 
   return (user && authenticated) ? (
-    <div className="user-list-container">
-			<h3>Browse the Watchlists</h3>
+    <div className="wrapper">
+			<h2>Browse the Watchlists</h2>
+      <div className="browse-user"> 
             {
               lists.map((list) => (
                 <UserList
@@ -35,7 +36,10 @@ const BrowseLists = ({ user, authenticated}) => {
                 />
               ))
             }
+          </div>
+          
     </div>
+    
   ) : (
     <div className='protected'>
     <img 
