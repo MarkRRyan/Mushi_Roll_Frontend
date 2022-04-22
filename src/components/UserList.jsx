@@ -13,7 +13,7 @@ const UserList = ({ list }) => {
 			<div className="user-list-container">
 				{
 					clicked ? (
-						<div className="popup-wrapper">
+						<div className="carousel">
 							<div className="carousel-container">
 								<div className="carousel-wrapper">
 									<h3 className="user-list-title">{list.username}'s Watchlist
@@ -22,16 +22,19 @@ const UserList = ({ list }) => {
 										<br />
                   <div ref={carouselElement} className="carouselbox" id="scroll">
                     {list.watch_list.map((listItem) => (
-                    	<h4 key={listItem.id}>{listItem.title}
-                      	<br />
-                      	<img className="carousel-image" src={`${listItem.image}`}></img>
-                      </h4>
+											<div className="list-icon" key={listItem.id} style={{
+												'--list-img': `url(${listItem.image}`}}>
+                    		<div className="title-bar">
+                  				<h3 className="list-title">{listItem.title}</h3>
+												</div>
+											</div>
 										))}
 										<button className="switchLeft sliderButton" onClick={() => handleScroll(-200)}>ᐊ</button> 
           					<button className="switchRight sliderButton" onClick={()=> handleScroll(200)}>ᐅ</button> 
 									</div>
 								</div>
 							</div>
+							<div className="overlay"></div>
             </div>
           ) : (
 						<div className="user-list-item">

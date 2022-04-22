@@ -270,7 +270,7 @@ const Music = () => {
       	type="range"
         min={0}
         max={1}
-        step={0.02}
+        step={0.002}
         value={volume}
         onChange={event => {
           setVolume(event.target.valueAsNumber)

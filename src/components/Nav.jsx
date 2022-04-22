@@ -6,10 +6,8 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
     authenticatedOptions = (
       <nav className='nav-bar'>
         <h3>Welcome {user.username}!</h3>
+        <Link onClick={handleLogOut} to="/">Sign Out</Link>
         <Link to="/dashboard">Dashboard</Link>
-        <Link onClick={handleLogOut} to="/">
-          Sign Out
-        </Link>
 			  <Link to="/browse_anime">Browse Anime</Link>
 			  <Link to="/browse_lists">Browse Lists</Link>
         </nav>
