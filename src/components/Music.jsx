@@ -3,7 +3,7 @@ import MusicDetails from "./MusicDetails"
 import MusicControls from "./MusicControls"
 
 
-const Music = () => {
+const Music = ({authenticated}) => {
 
 	//----------------------------------------*
 	//AUDIO CONTROL STATES
@@ -12,6 +12,7 @@ const Music = () => {
 	const [track, setTrack] = useState(0)
 	const [nextTrack, setNextTrack] = useState(track + 1)
 	const [volume, setVolume] = useState(1)
+	const [show, setShow] = useState(false)
 
 	//----------------------------------------*
 	//TIMER STATES & REFS
@@ -141,6 +142,9 @@ const Music = () => {
 		}
 	]
 
+	useEffect(() => {
+			setShow(current => !current)
+	}, [authenticated])
 
 	//----------------------------------------*
 	//AUDIO CONTROLS
@@ -149,11 +153,13 @@ const Music = () => {
 	}, [volume])
 
 	useEffect(() => {
-		(playing) ? (
+		if (playing) {
 			audioElement.current.play()
-		) : (
+			timerStart()
+		 } else {
+			clearInterval(timer.current)
 			audioElement.current.pause()
-		)
+		 }
 	})
 
 
@@ -254,45 +260,54 @@ const Music = () => {
 
 
 	return (
-		<div className="music-player">
-			<audio
-				src={songs[track].src}
-				ref={audioElement}
-			></audio>
-			<MusicDetails 
-				song={songs[track]}
-			/>
-			<div className="next-track">
-				<h6>[next track]: {songs[nextTrack].title}</h6>
+		<div className="music-player" style={{display: show ? 'block' : 'none'}}>
+ 			<audio
+ 				src={songs[track].src}
+ 				ref={audioElement}
+ 			></audio>
+ 			<div className="track-info-container">
+ 				<MusicDetails 
+					song={songs[track]}
+				/>
+				<div className="next-track">
+					<h6>next track: [ {songs[nextTrack].title} ]</h6>
+				</div>
 			</div>
-			<input
-				className="vol"
-      	type="range"
-        min={0}
-        max={1}
-        step={0.002}
-        value={volume}
-        onChange={event => {
-          setVolume(event.target.valueAsNumber)
-        }}
-      />
-			<input
-				ref={seekElement}
-        type="range"
-        value={trackProgress}
-        step="1"
-        min="0"
-        max={audioElement.current?.duration}
-        className="progress"
-        onChange={(e) => onSeek(e.target.value)}
-        onMouseUp={onSeekEnd}
-        onKeyUp={onSeekEnd}
-      />
-			<MusicControls
-				playing={playing}
-				isPlaying={isPlaying}
-				skip={skip}
-			/>
+			<div className="m-controls-container">
+				<div className="seek-wrapper">
+					<input
+						ref={seekElement}
+						type="range"
+						value={trackProgress}
+						step="1"
+						min="0"
+						max={audioElement.current?.duration}
+						className="progress"
+						onChange={(e) => onSeek(e.target.value)}
+						onMouseUp={onSeekEnd}
+						onKeyUp={onSeekEnd}
+					/>
+				</div>
+				<MusicControls
+					playing={playing}
+					isPlaying={isPlaying}
+					skip={skip}
+				/>
+				<div className="vol-wrapper">
+					<input
+						className="vol"
+						type="range"
+						min={0}
+						max={1}
+						step={0.002}
+						value={volume}
+						onChange={event => {
+							setVolume(event.target.valueAsNumber)
+						}}
+					/>
+					<h6 className="vol-pct">{Math.trunc(volume * 100)}%</h6>
+				</div>
+			</div>
 		</div>
 	)
 }
