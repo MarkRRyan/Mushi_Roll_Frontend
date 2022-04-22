@@ -8,8 +8,8 @@ const Home = () => {
     <div className="home-container">
 
       <section className="welcome-signin">
-        <button onClick={() => navigate('/signin')}>
-          Click Here To Get Started
+        <button className="button button-1"  onClick={() => navigate('/signin')}>
+          Get Started
         </button>
       </section>
     </div>
