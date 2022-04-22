@@ -35,7 +35,7 @@ const BrowseLists = ({ user, authenticated }) => {
   ) : (
     <div className='protected'>
       <img 
-        className="sad-mushi"
+        className="sad-mushi-image"
         src='https://imgur.com/nAbKh6q.png' 
         alt='sad mushi' 
         onClick={()=> navigate('/signin')} 

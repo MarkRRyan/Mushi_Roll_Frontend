@@ -102,8 +102,12 @@ return (user && authenticated) ? (
   </div>
 ) : (
   <div className='protected'>
-    <h3>Oops! You must be signed in to do that!</h3>
-    <button onClick={()=> navigate('/signin')}>Sign in</button>
+     <img 
+        className="sad-mushi-image"
+        src='https://imgur.com/nAbKh6q.png' 
+        alt='sad mushi' 
+        onClick={()=> navigate('/signin')} 
+      />
   </div>
 )
 }
