@@ -51,6 +51,7 @@ const App = () => {
     }
     handleAnime()
   }, [])
+// animating the buttons
 
   
 

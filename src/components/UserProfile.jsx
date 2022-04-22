@@ -44,7 +44,8 @@ const UserProfile = ({renderList, change, setChange}) => {
 						<li className="usersLists">
 							{newList.title}
 						</li>
-						<button onClick={() => 
+						<br />
+						<button className='button button-3 button3b ' onClick={() => 
 							{setTitle(newList.id)
 							setTargeted(true)
 							}}
