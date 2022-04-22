@@ -12,7 +12,6 @@ const UserProfile = ({renderList, change, setChange}) => {
 			userId: localStorage.getItem('watcher-id'),
 			animeId: title
 		})
-		console.log(data)
 		setTargeted(false)
 		setChange(true)
 

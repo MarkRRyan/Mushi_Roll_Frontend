@@ -1,14 +1,10 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { ListContext } from "../components/ListContext"
-import ListPreviewDetail from "../components/ListPreviewDetail"
-import UserProfile from "../components/UserProfile"
 import { GetAllLists } from "../services/ListServices"
 import UserList from "../components/UserList"
 
 const BrowseLists = ({ user, authenticated}) => {
   
-  const {watchlist} = useContext(ListContext)
   const [lists, setLists] = useState([])
 
   let navigate = useNavigate()
@@ -16,7 +12,6 @@ const BrowseLists = ({ user, authenticated}) => {
   useEffect(() => {
     const viewLists = async (req, res) => {
       const data = await GetAllLists()
-      console.log(data)
       setLists(data)
     }
     viewLists()
@@ -48,7 +43,6 @@ const BrowseLists = ({ user, authenticated}) => {
       alt='sad mushi' 
       onClick={()=> navigate('/signin')} 
     />
-    {/* <button onClick={()=> navigate('/signin')}>Sign in</button> */}
     </div>
   )
 }

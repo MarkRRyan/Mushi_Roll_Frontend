@@ -25,7 +25,6 @@ const Dashboard = ({ user, authenticated }) => {
     watch = await (watchlist.map((item)=> {
       return(item.id)
     }))
-    console.log(watch) //output [3, 2]
     gotWatchlist()
   }
 
@@ -35,7 +34,6 @@ const Dashboard = ({ user, authenticated }) => {
       watch.map((newItem)=> {
         exarr.push({userId: user.id, animeId: newItem})
       })
-      console.log(exarr) //output [0: {userId: 51, animeId: 3}, 1: {userId: 51, animeId: 2}]
       setListData(exarr)
       pushList()
     }
@@ -43,12 +41,10 @@ const Dashboard = ({ user, authenticated }) => {
     const pushList =  () => {
       PushWatchlist(listData)
       setChange(true)
-      console.log('push successful') 
   }
   
   const userList = async () => {
     const data = await GetUser(localStorage.getItem('watcher-id'))
-    console.log('this is our data', data.watch_list)
     setRenderList(data.watch_list)
     setChange(false)
   }
@@ -78,7 +74,9 @@ return (user && authenticated) ? (
     <div className='list-preview-pane'>
       <h3>Watchlist Preview</h3>
       <button className='dash-button button3b button-2' onClick={() => setWatchlist([])}>Clear Preview</button>
-      <button className='button3b button-2' onClick={() => updateWatchlist()} >Save To Watchlist</button>
+      <button className='button3b button-2' onClick={() => {
+        updateWatchlist()
+        setWatchlist([])}} >Save To Watchlist</button>
       <div className="anime-grid">
         {watchlist.map((show) => (
           <ListPreviewDetail 
