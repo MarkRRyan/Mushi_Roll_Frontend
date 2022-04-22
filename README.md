@@ -16,7 +16,7 @@ Is that you? Is everything you do in your life wrong? Does nobody love you? Then
 
  🍡 View, add to, edit, and delete from your watch list!
 
- 🍱 You can also view other users' lists!!
+ 🍱 You can also view other users lists!!
 
 ![anime wow](https://i.kym-cdn.com/entries/icons/facebook/000/030/573/maxresdefault.jpg)
 ***
